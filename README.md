@@ -18,6 +18,7 @@ The repository is composed of a folder "uptake" itself composed of several folde
 - model_posttreatment: contains the scripts to extract the phases from the aforementioned .pkl files.
 - metamodel_implementation: gathers the scripts for the creation and validation of metamodels.
 - sensitivity_analysis: contains the routines to compute the Sobol sensitivity indices along with the study of their convergence.
+- figures: contains the classes utils to execute the plot functions in the aforementioned folders.
 
 The repository also contains a setup.py file, that should be installed with the following command:
 
