@@ -19,6 +19,15 @@ The repository is composed of a folder "uptake" itself composed of several folde
 - metamodel_implementation: gathers the scripts for the creation and validation of metamodels.
 - sensitivity_analysis: contains the routines to compute the Sobol sensitivity indices along with the study of their convergence.
 
+The repository also contains a setup.py file, that should be installed with the following command:
+
+```python -m pip install -e . --user```
+
+To remove this setup from your machine, use the following command:
+
+```pip uninstall np_uptake```
+
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
