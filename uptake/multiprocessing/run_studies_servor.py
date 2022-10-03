@@ -38,12 +38,14 @@ def compute_energy_and_get_phase_for_given_mechanics_and_particle(folder_name, z
             wrapping_phase_number : int - number id corresponding to thw wrapping_phase
     """
     path_to_data_folder = make_data_folder(folder_name)
+    print(path_to_data_folder)
     existing_filenames = {f for f in listdir(path_to_data_folder) if isfile(join(path_to_data_folder, f))}
     wrapping = mputils.define_global_Wrapping_class()
     energy_computation = EnergyComputation()
     mechanics_i, particle_i = list(zip_i)[0], list(zip_i)[1]
     membrane_i = MembraneGeometry(particle_i, sampling_points_membrane=300)
     outfile_name = uptake.model.utils.define_pkl_filename(particle_i, mechanics_i)
+    print(outfile_name)
     if outfile_name not in existing_filenames:
         (f_eq, wrapping_phase_number, wrapping_phase, energy_list, time_list, _, _, _, _) = identify_wrapping_phase(
             particle_i, mechanics_i, membrane_i, wrapping, energy_computation

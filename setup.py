@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name="np_uptake",
+    name="uptake_of_np",
     version="0.1.0",
     author="Sarah Iaquinta",
     author_email="sarah.r.iaquinta@gmail.com",

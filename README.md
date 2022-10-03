@@ -26,7 +26,7 @@ The repository also contains a setup.py file, that should be installed with the 
 
 To remove this setup from your machine, use the following command:
 
-```pip uninstall np_uptake```
+```pip uninstall uptake_of_np```
 
 
 
