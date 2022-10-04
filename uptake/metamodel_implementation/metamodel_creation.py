@@ -1180,7 +1180,7 @@ if __name__ == "__main__":
     
     filename_qMC_mechanoadaptation_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_elliptic.txt"
     training_amount_list_mechanoadaptation_elliptic = [0.65]
-    degree_list_mechanoadaptation_elliptic = np.arange(1, 6)
+    degree_list_mechanoadaptation_elliptic = np.arange(1, 7)
 
     
     for training_amount in training_amount_list_mechanoadaptation_elliptic:
