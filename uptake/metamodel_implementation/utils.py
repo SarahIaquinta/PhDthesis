@@ -202,12 +202,36 @@ def extract_sensitivity_algo_from_pkl(complete_filename):
     return sensitivity_algo
 
 def rescale_sample(vector):
+    """Maps a vector in [-1, 1]
+
+    Parameters:
+        ----------
+        vector: array
+            vector that is to be mapped
+
+    Returns:
+        -------
+        mapped_vector: array
+            vector after mapping in [-1, 1]
+    """
     vector_start0 = [k[0] - vector.getMin()[0] for k in vector]
     vector_end2 = [k * 2 / max(vector_start0) for k in vector_start0]
-    vector_normalized = [k - 1 for k in vector_end2]
-    return vector_normalized
+    mapped_vector = [k - 1 for k in vector_end2]
+    return mapped_vector
 
 def transform_vector_to_Sample(vector):
+    """Transforms a vector (array) to a Sample (object of OpenTURNS)
+
+    Parameters:
+        ----------
+        vector: array
+            vector that is to be mapped
+
+    Returns:
+        -------
+        sample: OpenTURNS Sample object
+            vector as a sample
+    """
     sample = ot.Sample(len(vector), 1)
     for k in range(len(vector)):
         sample[k, 0] = vector[k]
