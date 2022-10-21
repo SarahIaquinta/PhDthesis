@@ -2056,7 +2056,7 @@ if __name__ == "__main__":
 
     filename_qMC_mechanoadaptation_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_elliptic.txt"
     training_amount_mechanoadaptation_elliptic = 0.65
-    degree_list_mechanoadaptation_elliptic = np.arange(1, 6)
+    degree_list_mechanoadaptation_elliptic = np.arange(1, 7)
 
     datapresetting_mechanoadaptation_elliptic = DataPreSetting(filename_qMC_mechanoadaptation_elliptic, training_amount_mechanoadaptation_elliptic)
     optimal_degree_mechanoadaptation_elliptic = optimize_degree_pce_mechanoadaptation_elliptic(
