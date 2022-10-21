@@ -2,9 +2,7 @@ import pickle
 from pathlib import Path
 import numpy as np
 import openturns as ot
-import seaborn as sns
 from sklearn.neighbors import KernelDensity
-
 from uptake.figures.utils import CreateFigure, Fonts, SaveFigure, XTickLabels, XTicks
 
 class SampleRepresentativeness:
@@ -209,7 +207,6 @@ class SampleRepresentativeness:
         all_shuffled_feq = self.generate_shuffled_samples_constant_elliptic()
         cumulative_means_for_all_samples = np.zeros_like(all_shuffled_feq)
         cumulative_stds_for_all_samples = np.zeros_like(all_shuffled_feq)
-
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
@@ -217,11 +214,9 @@ class SampleRepresentativeness:
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_feq[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
-
         for j in range(len(std_of_cumulative_means)):
             std_of_cumulative_means[j] = np.std(cumulative_means_for_all_samples[j, :])
             std_of_cumulative_stds[j] = np.std(cumulative_stds_for_all_samples[j, :])
-
         with open("data_representativeness_constant_elliptic.pkl", "wb") as f:
             pickle.dump(
                 [cumulative_mean, std_of_cumulative_means, cumulative_std, std_of_cumulative_stds, all_shuffled_feq],
@@ -264,7 +259,6 @@ class SampleRepresentativeness:
         all_shuffled_phase3 = self.generate_shuffled_samples_mechanoadaptation_circular()
         cumulative_means_for_all_samples = np.zeros_like(all_shuffled_phase3)
         cumulative_stds_for_all_samples = np.zeros_like(all_shuffled_phase3)
-
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
@@ -272,11 +266,9 @@ class SampleRepresentativeness:
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_phase3[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
-
         for j in range(len(std_of_cumulative_means)):
             std_of_cumulative_means[j] = np.std(cumulative_means_for_all_samples[j, :])
             std_of_cumulative_stds[j] = np.std(cumulative_stds_for_all_samples[j, :])
-
         with open("data_representativeness_mechanoadaptation_circular.pkl", "wb") as f:
             pickle.dump(
                 [cumulative_mean, std_of_cumulative_means, cumulative_std, std_of_cumulative_stds, all_shuffled_phase3],
@@ -319,7 +311,6 @@ class SampleRepresentativeness:
         all_shuffled_feq = self.generate_shuffled_samples_mechanoadaptation_vs_passive_circular()
         cumulative_means_for_all_samples = np.zeros_like(all_shuffled_feq)
         cumulative_stds_for_all_samples = np.zeros_like(all_shuffled_feq)
-
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
@@ -327,11 +318,9 @@ class SampleRepresentativeness:
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_feq[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
-
         for j in range(len(std_of_cumulative_means)):
             std_of_cumulative_means[j] = np.std(cumulative_means_for_all_samples[j, :])
             std_of_cumulative_stds[j] = np.std(cumulative_stds_for_all_samples[j, :])
-
         with open("data_representativeness_mechanoadaptation_vs_passive_circular.pkl", "wb") as f:
             pickle.dump(
                 [cumulative_mean, std_of_cumulative_means, cumulative_std, std_of_cumulative_stds, all_shuffled_feq],
@@ -374,7 +363,6 @@ class SampleRepresentativeness:
         all_shuffled_phase3 = self.generate_shuffled_samples_mechanoadaptation_elliptic()
         cumulative_means_for_all_samples = np.zeros_like(all_shuffled_phase3)
         cumulative_stds_for_all_samples = np.zeros_like(all_shuffled_phase3)
-
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
@@ -382,11 +370,9 @@ class SampleRepresentativeness:
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_phase3[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
-
         for j in range(len(std_of_cumulative_means)):
             std_of_cumulative_means[j] = np.std(cumulative_means_for_all_samples[j, :])
             std_of_cumulative_stds[j] = np.std(cumulative_stds_for_all_samples[j, :])
-
         with open("data_representativeness_mechanoadaptation_elliptic.pkl", "wb") as f:
             pickle.dump(
                 [cumulative_mean, std_of_cumulative_means, cumulative_std, std_of_cumulative_stds, all_shuffled_phase3],
@@ -429,7 +415,6 @@ class SampleRepresentativeness:
         all_shuffled_feq = self.generate_shuffled_samples_mechanoadaptation_vs_passive_elliptic()
         cumulative_means_for_all_samples = np.zeros_like(all_shuffled_feq)
         cumulative_stds_for_all_samples = np.zeros_like(all_shuffled_feq)
-
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
@@ -437,11 +422,9 @@ class SampleRepresentativeness:
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_feq[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
-
         for j in range(len(std_of_cumulative_means)):
             std_of_cumulative_means[j] = np.std(cumulative_means_for_all_samples[j, :])
             std_of_cumulative_stds[j] = np.std(cumulative_stds_for_all_samples[j, :])
-
         with open("data_representativeness_mechanoadaptation_vs_passive_elliptic.pkl", "wb") as f:
             pickle.dump(
                 [cumulative_mean, std_of_cumulative_means, cumulative_std, std_of_cumulative_stds, all_shuffled_feq],
@@ -469,7 +452,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_constant_elliptic.pkl", "rb") as f:
             [cumulative_mean, std_of_cumulative_means, _, _, all_shuffled_feq] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_mean) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -520,7 +502,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_circular.pkl", "rb") as f:
             [cumulative_mean, std_of_cumulative_means, _, _, all_shuffled_psi3] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_mean) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -571,7 +552,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_vs_passive_circular.pkl", "rb") as f:
             [cumulative_mean, std_of_cumulative_means, _, _, all_shuffled_feq] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_mean) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -622,7 +602,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_elliptic.pkl", "rb") as f:
             [cumulative_mean, std_of_cumulative_means, _, _, all_shuffled_psi3] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_mean) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -973,7 +952,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_constant_elliptic.pkl", "rb") as f:
             [mean_of_cumulative_means, _, _, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(mean_of_cumulative_means) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -983,7 +961,6 @@ class SampleRepresentativeness:
         ]
         ax.plot(sample_size[0:-1], gradient, "-k")
         ax.plot(sample_size[0:-1], [1e-2] * len(sample_size[0:-1]), "--r")
-
         ax.set_xticks([1, 1000, 2000, 3000, 4000])
         ax.set_xticklabels(
             [1, 1000, 2000, 3000, 4000],
@@ -1023,7 +1000,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_circular.pkl", "rb") as f:
             [mean_of_cumulative_means, _, _, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(mean_of_cumulative_means) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1033,7 +1009,6 @@ class SampleRepresentativeness:
         ]
         ax.plot(sample_size[0:-1], gradient, "-k")
         ax.plot(sample_size[0:-1], [1e-2] * len(sample_size[0:-1]), "--r")
-
         ax.set_xticks([1, 200, 400, 600, 800, 1000])
         ax.set_xticklabels(
             [1, 200, 400, 600, 800, 1000],
@@ -1073,7 +1048,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_vs_passive_circular.pkl", "rb") as f:
             [mean_of_cumulative_means, _, _, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(mean_of_cumulative_means) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1083,7 +1057,6 @@ class SampleRepresentativeness:
         ]
         ax.plot(sample_size[0:-1], gradient, "-k")
         ax.plot(sample_size[0:-1], [1e-2] * len(sample_size[0:-1]), "--r")
-
         ax.set_xticks([1, 1000, 2000, 3000, 4000])
         ax.set_xticklabels(
             [1, 1000, 2000, 3000, 4000],
@@ -1123,7 +1096,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_elliptic.pkl", "rb") as f:
             [mean_of_cumulative_means, _, _, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(mean_of_cumulative_means) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1133,7 +1105,6 @@ class SampleRepresentativeness:
         ]
         ax.plot(sample_size[0:-1], gradient, "-k")
         ax.plot(sample_size[0:-1], [1e-2] * len(sample_size[0:-1]), "--r")
-
         ax.set_xticks([1, 200, 400, 600, 800, 1000])
         ax.set_xticklabels(
             [1, 200, 400, 600, 800, 1000],
@@ -1173,7 +1144,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_vs_passive_elliptic.pkl", "rb") as f:
             [mean_of_cumulative_means, _, _, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(mean_of_cumulative_means) + 1, 2)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1181,10 +1151,8 @@ class SampleRepresentativeness:
             np.abs(np.diff(mean_of_cumulative_means)[k]) / mean_of_cumulative_means[k]
             for k in range(0, len(mean_of_cumulative_means) -1, 2)
         ]
-
         ax.plot(sample_size[0:-1], gradient[0:-1], "-k")
         ax.plot(sample_size[0:-1], [1e-2] * len(sample_size[0:-1]), "--r")
-
         ax.set_xticks([1, 1000, 2000, 3000, 4000])
         ax.set_xticklabels(
             [1, 1000, 2000, 3000, 4000],
@@ -1224,7 +1192,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_constant_elliptic.pkl", "rb") as f:
             [_, _, cumulative_std, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_std) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1270,7 +1237,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_circular.pkl", "rb") as f:
             [_, _, cumulative_std, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_std) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1316,7 +1282,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_vs_passive_circular.pkl", "rb") as f:
             [_, _, cumulative_std, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_std) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1362,7 +1327,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_elliptic.pkl", "rb") as f:
             [_, _, cumulative_std, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_std) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1408,7 +1372,6 @@ class SampleRepresentativeness:
         """
         with open("data_representativeness_mechanoadaptation_vs_passive_elliptic.pkl", "rb") as f:
             [_, _, cumulative_std, _, _] = pickle.load(f)
-
         sample_size = np.arange(1, len(cumulative_std) + 1)
         fig = createfigure.rectangle_figure(self.pixels)
         ax = fig.gca()
@@ -1452,9 +1415,7 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        
         X_plot = np.linspace(0, 1, 2000)[:, None]
-
         kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(all_shuffled_feq[:, 0].reshape(-1, 1))
         log_dens_model = kde_model.score_samples(X_plot)
         ax.hist(all_shuffled_feq[:, 0], bins=nb_bin, density=True, color="lightgray", ec="black")
@@ -1471,14 +1432,12 @@ class SampleRepresentativeness:
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_yticks([0, 2, 4, 6])
         ax.set_yticklabels(
             [0, 2, 4, 6],
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_xlim((-0.02, 1.02))
         ax.set_ylim((0, 7))
         ax.set_xlabel(r"$\tilde{f}$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
@@ -1503,9 +1462,7 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_phase3] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-
         X_plot = np.linspace(0, 1, 1000)[:, None]
-
         kde_model = KernelDensity(kernel='gaussian', bandwidth=0.03).fit(all_shuffled_phase3[:, 0].reshape(-1, 1))
         log_dens_model = kde_model.score_samples(X_plot)
         ax.hist(all_shuffled_phase3[:, 0], bins=nb_bin, density=True, color="lightgray", ec="black")
@@ -1528,7 +1485,6 @@ class SampleRepresentativeness:
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_xlim((-0.02, 1.02))
         ax.set_xlabel(r"$\psi_3$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
         ax.set_ylabel("$p_{\Psi_3}(\psi_3)$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
@@ -1552,9 +1508,7 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        
         X_plot = np.linspace(0, 1, 2000)[:, None]
-
         kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(all_shuffled_feq[:, 0].reshape(-1, 1))
         log_dens_model = kde_model.score_samples(X_plot)
         ax.hist(all_shuffled_feq[:, 0], bins=nb_bin, density=True, color="lightgray", ec="black")
@@ -1571,14 +1525,12 @@ class SampleRepresentativeness:
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_yticks([0, 2, 4, 6])
         ax.set_yticklabels(
             [0, 2, 4, 6],
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_xlim((-0.02, 1.02))
         ax.set_ylim((0, 7))
         ax.set_xlabel(r"$\tilde{f}$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
@@ -1603,9 +1555,7 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_phase3] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        
         X_plot = np.linspace(0, 1, 1000)[:, None]
-
         kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(all_shuffled_phase3[:, 0].reshape(-1, 1))
         log_dens_model = kde_model.score_samples(X_plot)
         ax.hist(all_shuffled_phase3[:, 0], bins=nb_bin, density=True, color="lightgray", ec="black")
@@ -1616,14 +1566,12 @@ class SampleRepresentativeness:
             lw=2,
             linestyle="-", label="model",
         )
-        
         ax.set_xticks(xticks.energy_plots())
         ax.set_xticklabels(
             xticklabels.energy_plots(),
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_ylim((0, 13))
         ax.set_yticks([0, 2, 4, 6, 8, 10, 12])
         ax.set_yticklabels(
@@ -1631,7 +1579,6 @@ class SampleRepresentativeness:
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_xlim((-0.02, 1.02))
         ax.set_xlabel(r"$\Psi_3$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
         ax.set_ylabel("$p_{\Psi_3}(\psi_3)$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
@@ -1655,9 +1602,7 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        
         X_plot = np.linspace(0, 1, 2000)[:, None]
-
         kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(all_shuffled_feq[:, 0].reshape(-1, 1))
         log_dens_model = kde_model.score_samples(X_plot)
         ax.hist(all_shuffled_feq[:, 0], bins=nb_bin, density=True, color="lightgray", ec="black")
@@ -1674,20 +1619,17 @@ class SampleRepresentativeness:
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_yticks([0, 2, 4, 6])
         ax.set_yticklabels(
             [0, 2, 4, 6],
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_xlim((-0.02, 1.02))
         ax.set_ylim((0, 7))
         ax.set_xlabel(r"$\tilde{f}$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
         ax.set_ylabel(r"$p_{\tilde{F}}(\tilde{f})$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
         savefigure.save_as_png(fig, "PDF_feq_mechanoadaptation_vs_passive_elliptic" + str(pixels))
-
 
 if __name__ == "__main__":
     createfigure = CreateFigure()
