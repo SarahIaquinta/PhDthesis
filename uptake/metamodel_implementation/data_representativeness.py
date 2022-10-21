@@ -960,7 +960,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative mean of a sample
+        Plots the absolute normalized gradient of the cumulative mean of a sample
 
         Parameters:
             ----------
@@ -1010,7 +1010,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative mean of a sample
+        Plots the absolute normalized gradient of the cumulative mean of a sample
 
         Parameters:
             ----------
@@ -1060,7 +1060,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative mean of a sample
+        Plots the absolute normalized gradient of the cumulative mean of a sample
 
         Parameters:
             ----------
@@ -1110,7 +1110,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative mean of a sample
+        Plots the absolute normalized gradient of the cumulative mean of a sample
 
         Parameters:
             ----------
@@ -1160,7 +1160,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative mean of a sample
+        Plots the absolute normalized gradient of the cumulative mean of a sample
 
         Parameters:
             ----------
@@ -1211,7 +1211,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative std of a sample
+        Plots the absolute normalized gradient of the cumulative std of a sample
 
         Parameters:
             ----------
@@ -1257,7 +1257,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative std of a sample
+        Plots the absolute normalized gradient of the cumulative std of a sample
 
         Parameters:
             ----------
@@ -1303,7 +1303,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative std of a sample
+        Plots the absolute normalized gradient of the cumulative std of a sample
 
         Parameters:
             ----------
@@ -1349,7 +1349,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative std of a sample
+        Plots the absolute normalized gradient of the cumulative std of a sample
 
         Parameters:
             ----------
@@ -1395,7 +1395,7 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the absolute gradient of the cumulative std of a sample
+        Plots the absolute normalized gradient of the cumulative std of a sample
 
         Parameters:
             ----------
