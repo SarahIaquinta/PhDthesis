@@ -3,12 +3,10 @@ import time
 import seaborn as sns
 ot.Log.Show(ot.Log.NONE)
 import numpy as np
-
 import uptake.metamodel_implementation.utils as miu
 from uptake.figures.utils import CreateFigure, Fonts, SaveFigure
 from uptake.metamodel_implementation.metamodel_validation import MetamodelPostTreatment
 from uptake.metamodel_implementation.metamodel_creation import DataPreSetting
-
 
 class Distribution:
     def __init__(self):
@@ -22,8 +20,8 @@ class Distribution:
         Returns:
             -------
             None
-        """
 
+        """
         self.gamma_bar_0_min = 1
         self.gamma_bar_0_max = 8
         self.sigma_bar_min = 0.5
@@ -1281,23 +1279,18 @@ def plot_comparison_indices_piechart(
     savefigure.save_as_png(fig, filename + str(pixels) + "p")
 
 
-
 if __name__ == "__main__":
     type_of_metamodel = "Kriging"
     training_amount = 0.9
-    sensitivity_experiment_size_list = np.array([10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 15000, 20000, 30000, 40000, 50000, 60000, 100000])#np.arange(10, 20000, 100)
-
+    sensitivity_experiment_size_list = np.array([10, 15, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 15000, 20000, 30000, 40000, 50000, 60000, 100000])
     type_of_Sobol_sensitivity_implementation_list = ["MauntzKucherenko", "Saltelli", "Jansen", "MauntzKucherenko", "Martinez"]
-
     metamodelposttreatment = MetamodelPostTreatment()
     distribution = Distribution()
     createfigure = CreateFigure()
     fonts = Fonts()
     savefigure = SaveFigure()
     pixels = 360
-
     degree = 17
-
     compute_convergence_Sobol_indices(
         sensitivity_experiment_size_list,
         type_of_metamodel,
@@ -1305,25 +1298,19 @@ if __name__ == "__main__":
         distribution,
         createfigure,
         pixels)
-
     filename_sensitivity_convergence = "sensitivity_analysis_convergence_constant_elliptic.pkl"
     Saltelli_first_order_indices_vs_experiment_size, Saltelli_total_order_indices_vs_experiment_size, Saltelli_first_order_indices_confidence_errorbars_vs_experiment_size, Saltelli_total_order_indices_confidence_errorbars_vs_experiment_size, Saltelli_computation_time_vs_experiment_size, Jansen_first_order_indices_vs_experiment_size, Jansen_total_order_indices_vs_experiment_size, Jansen_first_order_indices_confidence_errorbars_vs_experiment_size, Jansen_total_order_indices_confidence_errorbars_vs_experiment_size, Jansen_computation_time_vs_experiment_size, MauntzKucherenko_first_order_indices_vs_experiment_size, MauntzKucherenko_total_order_indices_vs_experiment_size, MauntzKucherenko_first_order_indices_confidence_errorbars_vs_experiment_size, MauntzKucherenko_total_order_indices_confidence_errorbars_vs_experiment_size, MauntzKucherenko_computation_time_vs_experiment_size, Martinez_first_order_indices_vs_experiment_size, Martinez_total_order_indices_vs_experiment_size, Martinez_first_order_indices_confidence_errorbars_vs_experiment_size, Martinez_total_order_indices_confidence_errorbars_vs_experiment_size, Martinez_computation_time_vs_experiment_size = miu.extract_sensitivity_convergence(filename_sensitivity_convergence)
-
     plot_convergence_Sobol_indices(sensitivity_experiment_size_list, 'Martinez', Martinez_first_order_indices_vs_experiment_size, Martinez_total_order_indices_vs_experiment_size, Martinez_first_order_indices_confidence_errorbars_vs_experiment_size, Martinez_total_order_indices_confidence_errorbars_vs_experiment_size, Martinez_computation_time_vs_experiment_size, createfigure, pixels, savefigure)
     plot_convergence_Sobol_indices(sensitivity_experiment_size_list, 'Saltelli', Saltelli_first_order_indices_vs_experiment_size, Saltelli_total_order_indices_vs_experiment_size, Saltelli_first_order_indices_confidence_errorbars_vs_experiment_size, Saltelli_total_order_indices_confidence_errorbars_vs_experiment_size, Saltelli_computation_time_vs_experiment_size, createfigure, pixels, savefigure)
     plot_convergence_Sobol_indices(sensitivity_experiment_size_list, 'Jansen', Jansen_first_order_indices_vs_experiment_size, Jansen_total_order_indices_vs_experiment_size, Jansen_first_order_indices_confidence_errorbars_vs_experiment_size, Jansen_total_order_indices_confidence_errorbars_vs_experiment_size, Jansen_computation_time_vs_experiment_size, createfigure, pixels, savefigure)
     plot_convergence_Sobol_indices(sensitivity_experiment_size_list, 'MauntzKucherenko', MauntzKucherenko_first_order_indices_vs_experiment_size, MauntzKucherenko_total_order_indices_vs_experiment_size, MauntzKucherenko_first_order_indices_confidence_errorbars_vs_experiment_size, MauntzKucherenko_total_order_indices_confidence_errorbars_vs_experiment_size, MauntzKucherenko_computation_time_vs_experiment_size, createfigure, pixels, savefigure)
-    
     plot_confinterval_Sobol_vs_sample_size(sensitivity_experiment_size_list)
     plot_gradient_Sobol_vs_sample_size(sensitivity_experiment_size_list)
-
     plot_comparison_indices(
     training_amount,
     degree,
     100000,
     createfigure,
     pixels,
-    
 )
-
     plot_comparison_indices_piechart(training_amount, 100000, createfigure, pixels,)
