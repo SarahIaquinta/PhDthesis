@@ -354,8 +354,8 @@ class MetamodelCreation:
             Kriging algorithm from the Openturns library
         """
 
-        basis = ot.Basis(0)
-        cov = ot.SphericalModel(self.dimension)
+        basis = ot.ConstantBasisFactory(self.dimension)
+        cov = ot.SquaredExponential(self.dimension)
         kriging_algorithm = ot.KrigingAlgorithm(self.input_sample_training, self.output_sample_training, cov, basis)
         return kriging_algorithm
 
