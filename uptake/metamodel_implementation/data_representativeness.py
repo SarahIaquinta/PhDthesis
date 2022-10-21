@@ -57,7 +57,7 @@ class SampleRepresentativeness:
 
     def generate_shuffled_samples_mechanoadaptation_circular(self):
         """
-        Shuffles the dataset output (phase 3) self.resampling_size times
+        Shuffles the dataset output (proportion of phase 3) self.resampling_size times
 
         Parameters:
             ----------
@@ -104,7 +104,7 @@ class SampleRepresentativeness:
 
     def generate_shuffled_samples_mechanoadaptation_elliptic(self):
         """
-        Shuffles the dataset output (phase 3) self.resampling_size times
+        Shuffles the dataset output (proportion of phase 3) self.resampling_size times
 
         Parameters:
             ----------
