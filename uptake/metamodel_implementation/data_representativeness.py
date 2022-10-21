@@ -8,7 +8,7 @@ from sklearn.neighbors import KernelDensity
 from uptake.figures.utils import CreateFigure, Fonts, SaveFigure, XTickLabels, XTicks
 
 class SampleRepresentativeness:
-    def __init__(self, filename, nb_of_shuffled_samples, pixels):
+    def __init__(self, filename, resampling_size, pixels):
         """
         Constructs all the necessary attributes for the DataPreSetting object.
 
@@ -16,7 +16,7 @@ class SampleRepresentativeness:
             ----------
             filename: string
                 name of the .txt file from which the data will be extracted
-            nb_of_shuffled_samples: float
+            resampling_size: float
                 number of resampling for the bootstrapping
             pixels: string
                 number of points per pixel in the figures
@@ -29,11 +29,11 @@ class SampleRepresentativeness:
 
         self.filename = Path.cwd() / "metamodel_implementation" / filename
         self.pixels = pixels
-        self.nb_of_shuffled_samples = nb_of_shuffled_samples
+        self.resampling_size = resampling_size
 
     def generate_shuffled_samples_constant_elliptic(self):
         """
-        Shuffles the dataset output (feq) self.nb_of_shuffled_samples times
+        Shuffles the dataset output (feq) self.resampling_size times
         The input text file named filename has the following columns (all floats):
         gamma_bar_0 ; sigma_bar ; r_bar ; f_eq ; phasis number
         Parameters:
@@ -42,14 +42,14 @@ class SampleRepresentativeness:
 
         Returns:
             -------
-            all_shuffled_f_eq: array of shape ((len(sample) , self.nb_of_shuffled_samples))
-                self.nb_of_shuffled_samples times shuffled f_eq
+            all_shuffled_f_eq: array of shape ((len(sample) , self.resampling_size))
+                self.resampling_size times shuffled f_eq
 
         """
         sample = ot.Sample.ImportFromTextFile(self.filename.as_posix(), "\t", 0)
         f_eq = sample[:, -2]
-        all_shuffled_f_eq = np.zeros((len(f_eq), self.nb_of_shuffled_samples))
-        for i in range(self.nb_of_shuffled_samples):
+        all_shuffled_f_eq = np.zeros((len(f_eq), self.resampling_size))
+        for i in range(self.resampling_size):
             np.random.shuffle(f_eq)
             for k in range(len(f_eq)):
                 all_shuffled_f_eq[k, i] = f_eq[k, 0]
@@ -57,7 +57,7 @@ class SampleRepresentativeness:
 
     def generate_shuffled_samples_mechanoadaptation_circular(self):
         """
-        Shuffles the dataset output (phase 3) self.nb_of_shuffled_samples times
+        Shuffles the dataset output (phase 3) self.resampling_size times
 
         Parameters:
             ----------
@@ -65,14 +65,14 @@ class SampleRepresentativeness:
 
         Returns:
             -------
-            all_shuffled_phase3: array of shape ((len(sample) , self.nb_of_shuffled_samples))
-                self.nb_of_shuffled_samples times shuffled phase 3
+            all_shuffled_phase3: array of shape ((len(sample) , self.resampling_size))
+                self.resampling_size times shuffled phase 3
 
         """
         sample = ot.Sample.ImportFromTextFile(self.filename.as_posix(), "\t", 0)
         phase3 = sample[:, -1]
-        all_shuffled_phase3 = np.zeros((len(phase3), self.nb_of_shuffled_samples))
-        for i in range(self.nb_of_shuffled_samples):
+        all_shuffled_phase3 = np.zeros((len(phase3), self.resampling_size))
+        for i in range(self.resampling_size):
             np.random.shuffle(phase3)
             for k in range(len(phase3)):
                 all_shuffled_phase3[k, i] = phase3[k, 0]
@@ -80,7 +80,7 @@ class SampleRepresentativeness:
 
     def generate_shuffled_samples_mechanoadaptation_vs_passive_circular(self):
         """
-        Shuffles the dataset output (feq) self.nb_of_shuffled_samples times
+        Shuffles the dataset output (feq) self.resampling_size times
         The input text file named filename has the following columns (all floats):
         gamma_bar_0 ; sigma_bar ; gamma_bar_r ; gamma_bar_fs ; gamma_bar_lambda ; r_bar ; f_eq ; phasis number
         Parameters:
@@ -89,14 +89,14 @@ class SampleRepresentativeness:
 
         Returns:
             -------
-            all_shuffled_f_eq: array of shape ((len(sample) , self.nb_of_shuffled_samples))
-                self.nb_of_shuffled_samples times shuffled f_eq
+            all_shuffled_f_eq: array of shape ((len(sample) , self.resampling_size))
+                self.resampling_size times shuffled f_eq
 
         """
         sample = ot.Sample.ImportFromTextFile(self.filename.as_posix(), "\t", 0)
         f_eq = sample[:, -2]
-        all_shuffled_f_eq = np.zeros((len(f_eq), self.nb_of_shuffled_samples))
-        for i in range(self.nb_of_shuffled_samples):
+        all_shuffled_f_eq = np.zeros((len(f_eq), self.resampling_size))
+        for i in range(self.resampling_size):
             np.random.shuffle(f_eq)
             for k in range(len(f_eq)):
                 all_shuffled_f_eq[k, i] = f_eq[k, 0]
@@ -104,7 +104,7 @@ class SampleRepresentativeness:
 
     def generate_shuffled_samples_mechanoadaptation_elliptic(self):
         """
-        Shuffles the dataset output (phase 3) self.nb_of_shuffled_samples times
+        Shuffles the dataset output (phase 3) self.resampling_size times
 
         Parameters:
             ----------
@@ -112,14 +112,14 @@ class SampleRepresentativeness:
 
         Returns:
             -------
-            all_shuffled_phase3: array of shape ((len(sample) , self.nb_of_shuffled_samples))
-                self.nb_of_shuffled_samples times shuffled phase 3
+            all_shuffled_phase3: array of shape ((len(sample) , self.resampling_size))
+                self.resampling_size times shuffled phase 3
 
         """
         sample = ot.Sample.ImportFromTextFile(self.filename.as_posix(), "\t", 0)
         phase3 = sample[:1024, -1]
-        all_shuffled_phase3 = np.zeros((len(phase3), self.nb_of_shuffled_samples))
-        for i in range(self.nb_of_shuffled_samples):
+        all_shuffled_phase3 = np.zeros((len(phase3), self.resampling_size))
+        for i in range(self.resampling_size):
             np.random.shuffle(phase3)
             for k in range(len(phase3)):
                 all_shuffled_phase3[k, i] = phase3[k, 0]
@@ -127,7 +127,7 @@ class SampleRepresentativeness:
 
     def generate_shuffled_samples_mechanoadaptation_vs_passive_elliptic(self):
         """
-        Shuffles the dataset output (feq) self.nb_of_shuffled_samples times
+        Shuffles the dataset output (feq) self.resampling_size times
         The input text file named filename has the following columns (all floats):
         gamma_bar_0 ; sigma_bar ; gamma_bar_r ; gamma_bar_fs ; gamma_bar_lambda ; r_bar ; f_eq ; phasis number
         Parameters:
@@ -136,14 +136,14 @@ class SampleRepresentativeness:
 
         Returns:
             -------
-            all_shuffled_f_eq: array of shape ((len(sample) , self.nb_of_shuffled_samples))
-                self.nb_of_shuffled_samples times shuffled f_eq
+            all_shuffled_f_eq: array of shape ((len(sample) , self.resampling_size))
+                self.resampling_size times shuffled f_eq
 
         """
         sample = ot.Sample.ImportFromTextFile(self.filename.as_posix(), "\t", 0)
         f_eq = sample[:, -2]
-        all_shuffled_f_eq = np.zeros((len(f_eq), self.nb_of_shuffled_samples))
-        for i in range(self.nb_of_shuffled_samples):
+        all_shuffled_f_eq = np.zeros((len(f_eq), self.resampling_size))
+        for i in range(self.resampling_size):
             np.random.shuffle(f_eq)
             for k in range(len(f_eq)):
                 all_shuffled_f_eq[k, i] = f_eq[k, 0]
@@ -176,7 +176,7 @@ class SampleRepresentativeness:
     def compute_means_stds_of_shuffled_samples_and_export_to_pkl_constant_elliptic(self):
         """
         Computes the cumulative mean and standard deviation (std) for the
-            self.nb_of_shuffled_samples shuffled samples that
+            self.resampling_size shuffled samples that
             have been generated
         Exports them into a .pkl file
 
@@ -212,7 +212,7 @@ class SampleRepresentativeness:
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
-        for i in range(self.nb_of_shuffled_samples):
+        for i in range(self.resampling_size):
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_feq[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
@@ -230,7 +230,7 @@ class SampleRepresentativeness:
     def compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_circular(self):
         """
         Computes the cumulative mean and standard deviation (std) for the
-            self.nb_of_shuffled_samples shuffled samples that
+            self.resampling_size shuffled samples that
             have been generated
         Exports them into a .pkl file
 
@@ -266,7 +266,7 @@ class SampleRepresentativeness:
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
-        for i in range(self.nb_of_shuffled_samples):
+        for i in range(self.resampling_size):
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_phase3[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
@@ -284,7 +284,7 @@ class SampleRepresentativeness:
     def compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_vs_passive_circular(self):
         """
         Computes the cumulative mean and standard deviation (std) for the
-            self.nb_of_shuffled_samples shuffled samples that
+            self.resampling_size shuffled samples that
             have been generated
         Exports them into a .pkl file
 
@@ -320,7 +320,7 @@ class SampleRepresentativeness:
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
-        for i in range(self.nb_of_shuffled_samples):
+        for i in range(self.resampling_size):
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_feq[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
@@ -338,7 +338,7 @@ class SampleRepresentativeness:
     def compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_elliptic(self):
         """
         Computes the cumulative mean and standard deviation (std) for the
-            self.nb_of_shuffled_samples shuffled samples that
+            self.resampling_size shuffled samples that
             have been generated
         Exports them into a .pkl file
 
@@ -374,7 +374,7 @@ class SampleRepresentativeness:
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
-        for i in range(self.nb_of_shuffled_samples):
+        for i in range(self.resampling_size):
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_phase3[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
@@ -392,7 +392,7 @@ class SampleRepresentativeness:
     def compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_vs_passive_elliptic(self):
         """
         Computes the cumulative mean and standard deviation (std) for the
-            self.nb_of_shuffled_samples shuffled samples that
+            self.resampling_size shuffled samples that
             have been generated
         Exports them into a .pkl file
 
@@ -428,7 +428,7 @@ class SampleRepresentativeness:
         std_of_cumulative_means = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         cumulative_std = np.zeros_like(cumulative_means_for_all_samples[:, 0])
         std_of_cumulative_stds = np.zeros_like(cumulative_std)
-        for i in range(self.nb_of_shuffled_samples):
+        for i in range(self.resampling_size):
             cumulative_mean, cumulative_std = self.compute_cumulative_mean_std(all_shuffled_feq[:, i])
             cumulative_means_for_all_samples[:, i] = cumulative_mean
             cumulative_stds_for_all_samples[:, i] = cumulative_std
@@ -451,7 +451,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative mean of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -503,7 +503,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative mean of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -555,7 +555,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative mean of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -607,7 +607,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative mean of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -659,7 +659,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative mean of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -711,7 +711,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative std of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -762,7 +762,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative std of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -813,7 +813,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative std of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -864,7 +864,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative std of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -915,7 +915,7 @@ class SampleRepresentativeness:
     ):
         """
         Plots the cumulative std of a sample with the
-            std (computed from the self.nb_of_shuffled_samples shuffled
+            std (computed from the self.resampling_size shuffled
                 samples)
 
         Parameters:
@@ -1651,7 +1651,7 @@ if __name__ == "__main__":
 
     filename_qMC_Sobol_constant_elliptic = "dataset_for_metamodel_creation_feq_constant_elliptic.txt"
 
-    samplerepresentativeness_constant_elliptic = SampleRepresentativeness(filename_qMC_Sobol_constant_elliptic, nb_of_shuffled_samples=200, pixels=360)
+    samplerepresentativeness_constant_elliptic = SampleRepresentativeness(filename_qMC_Sobol_constant_elliptic, resampling_size=200, pixels=360)
 
     samplerepresentativeness_constant_elliptic.compute_means_stds_of_shuffled_samples_and_export_to_pkl_constant_elliptic()
 
@@ -1672,7 +1672,7 @@ if __name__ == "__main__":
     filename_qMC_Sobol_mechanoadaptation_circular = "dataset_for_metamodel_creation_mechanoadaptation_circular.txt"
 
     samplerepresentativeness_mechanoadaptation_circular = SampleRepresentativeness(
-        filename_qMC_Sobol_mechanoadaptation_circular, nb_of_shuffled_samples=200, pixels=360)
+        filename_qMC_Sobol_mechanoadaptation_circular, resampling_size=200, pixels=360)
 
     samplerepresentativeness_mechanoadaptation_circular.compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_circular()
 
@@ -1693,7 +1693,7 @@ if __name__ == "__main__":
     filename_qMC_Sobol_mechanoadaptation_vs_passive_circular = "dataset_for_metamodel_creation_mechanoadaptation_vs_passive_circular.txt"
 
     samplerepresentativeness_mechanoadaptation_vs_passive_circular = SampleRepresentativeness(
-        filename_qMC_Sobol_mechanoadaptation_vs_passive_circular, nb_of_shuffled_samples=200, pixels=360)
+        filename_qMC_Sobol_mechanoadaptation_vs_passive_circular, resampling_size=200, pixels=360)
 
     samplerepresentativeness_mechanoadaptation_vs_passive_circular.compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_vs_passive_circular()
 
@@ -1714,7 +1714,7 @@ if __name__ == "__main__":
     filename_qMC_Sobol_mechanoadaptation_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_elliptic.txt"
 
     samplerepresentativeness_mechanoadaptation_elliptic = SampleRepresentativeness(
-        filename_qMC_Sobol_mechanoadaptation_elliptic, nb_of_shuffled_samples=200, pixels=360)
+        filename_qMC_Sobol_mechanoadaptation_elliptic, resampling_size=200, pixels=360)
 
     samplerepresentativeness_mechanoadaptation_elliptic.compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_elliptic()
 
@@ -1736,7 +1736,7 @@ if __name__ == "__main__":
     filename_qMC_Sobol_mechanoadaptation_vs_passive_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_vs_passive_elliptic.txt"
 
     samplerepresentativeness_mechanoadaptation_vs_passive_elliptic = SampleRepresentativeness(
-        filename_qMC_Sobol_mechanoadaptation_vs_passive_elliptic, nb_of_shuffled_samples=200, pixels=360)
+        filename_qMC_Sobol_mechanoadaptation_vs_passive_elliptic, resampling_size=200, pixels=360)
 
     samplerepresentativeness_mechanoadaptation_vs_passive_elliptic.compute_means_stds_of_shuffled_samples_and_export_to_pkl_mechanoadaptation_vs_passive_elliptic()
 
