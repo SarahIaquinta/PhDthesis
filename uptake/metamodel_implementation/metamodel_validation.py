@@ -18,7 +18,7 @@ class MetamodelValidation:
     Methods:
     -------
     validate_metamodel_with_test(self, inputTest, outputTest, metamodel):
-        Constructs a metamodel validator class (from the Openturns library)
+        Constructs a metamodel validator class (from the OpenTURNS library)
     compute_Q2(self, metamodel_validator):
         Computes the predictivity factor of the metamodel.
     """
@@ -33,10 +33,11 @@ class MetamodelValidation:
         Returns:
         -------
         None
-        """
 
+        """
+    
     def validate_metamodel_with_test(self, inputTest, outputTest, metamodel):
-        """Constructs a metamodel validator class (from the Openturns library).
+        """Constructs a metamodel validator class (from the OpenTURNS library).
 
         Parameters:
         ----------
@@ -52,9 +53,9 @@ class MetamodelValidation:
         Returns:
         -------
         metamodel_validator: OT class
-            Tool from the Openturns library used to validate a metamodel
-        """
+            Tool from the OpenTURNS library used to validate a metamodel
 
+        """
         metamodel_validator = ot.MetaModelValidation(inputTest, outputTest, metamodel)
         return metamodel_validator
 
@@ -64,20 +65,40 @@ class MetamodelValidation:
         Parameters:
         ----------
         metamodel_validator: class
-            Tool from the Openturns library used to validate a metamodel
+            Tool from the OpenTURNS library used to validate a metamodel
 
         Returns:
         -------
         Q2: class (array)
             Predictivity factor
-        """
 
+        """
         Q2 = metamodel_validator.computePredictivityFactor()
         return Q2
 
     def plot_prediction_vs_true_value_manual_constant_elliptic(
         self, type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     ):
+        """Constructs a metamodel validator class (from the OpenTURNS library).
+
+        Parameters:
+        ----------
+        type_of_metamodel: string
+            Name of the metamodel that has been computed. Possible value: "PCE"
+        inputTest: class (array)
+            Part of the dataset (input variables of the model) that will be used to validate
+            the metamodel
+        outputTest: class (array)
+            Part of the dataset (output variables of the model) that will be used to validate
+            the metamodel
+        metamodel: class
+            metamodel object (from the OpenTurns library)
+
+        Returns:
+        -------
+        None
+
+        """
         predicted_output = metamodel(inputTest)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
@@ -111,6 +132,26 @@ class MetamodelValidation:
     def plot_prediction_vs_true_value_manual_mechanoadaptation_circular(
         self, type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     ):
+        """Constructs a metamodel validator class (from the OpenTURNS library).
+
+        Parameters:
+        ----------
+        type_of_metamodel: string
+            Name of the metamodel that has been computed. Possible value: "PCE"
+        inputTest: class (array)
+            Part of the dataset (input variables of the model) that will be used to validate
+            the metamodel
+        outputTest: class (array)
+            Part of the dataset (output variables of the model) that will be used to validate
+            the metamodel
+        metamodel: class
+            metamodel object (from the OpenTurns library)
+
+        Returns:
+        -------
+        None
+
+        """
         predicted_output = metamodel(inputTest)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
@@ -144,6 +185,26 @@ class MetamodelValidation:
     def plot_prediction_vs_true_value_manual_mechanoadaptation_vs_passive_circular(
         self, type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     ):
+        """Constructs a metamodel validator class (from the OpenTURNS library).
+
+        Parameters:
+        ----------
+        type_of_metamodel: string
+            Name of the metamodel that has been computed. Possible value: "PCE"
+        inputTest: class (array)
+            Part of the dataset (input variables of the model) that will be used to validate
+            the metamodel
+        outputTest: class (array)
+            Part of the dataset (output variables of the model) that will be used to validate
+            the metamodel
+        metamodel: class
+            metamodel object (from the OpenTurns library)
+
+        Returns:
+        -------
+        None
+
+        """
         predicted_output = metamodel(inputTest)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
@@ -177,6 +238,26 @@ class MetamodelValidation:
     def plot_prediction_vs_true_value_manual_mechanoadaptation_elliptic(
         self, type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     ):
+        """Constructs a metamodel validator class (from the OpenTURNS library).
+
+        Parameters:
+        ----------
+        type_of_metamodel: string
+            Name of the metamodel that has been computed. Possible value: "PCE"
+        inputTest: class (array)
+            Part of the dataset (input variables of the model) that will be used to validate
+            the metamodel
+        outputTest: class (array)
+            Part of the dataset (output variables of the model) that will be used to validate
+            the metamodel
+        metamodel: class
+            metamodel object (from the OpenTurns library)
+
+        Returns:
+        -------
+        None
+
+        """
         predicted_output = metamodel(inputTest)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
@@ -210,6 +291,26 @@ class MetamodelValidation:
     def plot_prediction_vs_true_value_manual_mechanoadaptation_vs_passive_elliptic(
         self, type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     ):
+        """Constructs a metamodel validator class (from the OpenTURNS library).
+
+        Parameters:
+        ----------
+        type_of_metamodel: string
+            Name of the metamodel that has been computed. Possible value: "PCE"
+        inputTest: class (array)
+            Part of the dataset (input variables of the model) that will be used to validate
+            the metamodel
+        outputTest: class (array)
+            Part of the dataset (output variables of the model) that will be used to validate
+            the metamodel
+        metamodel: class
+            metamodel object (from the OpenTurns library)
+
+        Returns:
+        -------
+        None
+
+        """
         predicted_output = metamodel(inputTest)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
@@ -264,26 +365,24 @@ def metamodel_validation_routine_pce_constant_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "PCE"
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
     degree: int
-        Dimension of the basis of polynoms
-
+        Dimension of the basis of polynomials
 
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_constant_elliptic' + str(degree), training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_constant_elliptic(shuffled_sample)
-
     gamma_bar_0_list_rescaled = miu.rescale_sample(inputTest[:, 0])
     sigma_bar_list_rescaled = miu.rescale_sample(inputTest[:, 1])
     r_bar_list_rescaled = miu.rescale_sample(inputTest[:, 2])
@@ -292,7 +391,6 @@ def metamodel_validation_routine_pce_constant_elliptic(
         input_sample_Test_rescaled[k, 0] = gamma_bar_0_list_rescaled[k]
         input_sample_Test_rescaled[k, 1] = sigma_bar_list_rescaled[k]
         input_sample_Test_rescaled[k, 2] = r_bar_list_rescaled[k]
-
     metamodel_validator = metamodelvalidation.validate_metamodel_with_test(
         input_sample_Test_rescaled, outputTest, metamodel
     )
@@ -326,26 +424,25 @@ def metamodel_validation_routine_pce_mechanoadaptation_circular(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "PCE"
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
 
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_circular' + str(degree), training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_circular(shuffled_sample)
-
     gamma_bar_r_list_rescaled = miu.rescale_sample(inputTest[:, 0])
     gamma_bar_fs_list_rescaled = miu.rescale_sample(inputTest[:, 1])
     gamma_bar_lambda_list_rescaled = miu.rescale_sample(inputTest[:, 2])
@@ -354,7 +451,6 @@ def metamodel_validation_routine_pce_mechanoadaptation_circular(
         input_sample_Test_rescaled[k, 0] = gamma_bar_r_list_rescaled[k]
         input_sample_Test_rescaled[k, 1] = gamma_bar_fs_list_rescaled[k]
         input_sample_Test_rescaled[k, 2] = gamma_bar_lambda_list_rescaled[k]
-
     metamodel_validator = metamodelvalidation.validate_metamodel_with_test(
         input_sample_Test_rescaled, outputTest, metamodel
     )
@@ -387,26 +483,25 @@ def metamodel_validation_routine_pce_mechanoadaptation_vs_passive_circular(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "PCE"
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
 
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_vs_passive_circular' + str(degree), training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_vs_passive_circular(shuffled_sample)
-
     gamma_bar_0_list_rescaled = miu.rescale_sample(inputTest[:, 0])
     sigma_bar_list_rescaled = miu.rescale_sample(inputTest[:, 1])
     gamma_bar_r_list_rescaled = miu.rescale_sample(inputTest[:, 2])
@@ -419,7 +514,6 @@ def metamodel_validation_routine_pce_mechanoadaptation_vs_passive_circular(
         input_sample_Test_rescaled[k, 2] = gamma_bar_r_list_rescaled[k]
         input_sample_Test_rescaled[k, 3] = gamma_bar_fs_bar_list_rescaled[k]
         input_sample_Test_rescaled[k, 4] = gamma_bar_lambda_list_rescaled[k]
-
     metamodel_validator = metamodelvalidation.validate_metamodel_with_test(
         input_sample_Test_rescaled, outputTest, metamodel
     )
@@ -453,27 +547,25 @@ def metamodel_validation_routine_pce_mechanoadaptation_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "PCE"
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
 
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_elliptic' + str(degree), training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_elliptic(shuffled_sample)
-
-
     gamma_bar_r_list_rescaled = miu.rescale_sample(inputTest[:, 0])
     gamma_bar_fs_list_rescaled = miu.rescale_sample(inputTest[:, 1])
     gamma_bar_lambda_list_rescaled = miu.rescale_sample(inputTest[:, 2])
@@ -484,8 +576,6 @@ def metamodel_validation_routine_pce_mechanoadaptation_elliptic(
         input_sample_Test_rescaled[k, 1] = gamma_bar_fs_list_rescaled[k]
         input_sample_Test_rescaled[k, 2] = gamma_bar_lambda_list_rescaled[k]
         input_sample_Test_rescaled[k, 3] = r_bar_list_rescaled[k]
-
-
     metamodel_validator = metamodelvalidation.validate_metamodel_with_test(
         input_sample_Test_rescaled, outputTest, metamodel
     )
@@ -519,26 +609,25 @@ def metamodel_validation_routine_pce_mechanoadaptation_vs_passive_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "PCE"
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
 
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_vs_passive_elliptic' + str(degree), training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_vs_passive_elliptic(shuffled_sample)
-
     gamma_bar_0_list_rescaled = miu.rescale_sample(inputTest[:, 0])
     sigma_bar_list_rescaled = miu.rescale_sample(inputTest[:, 1])
     gamma_bar_r_list_rescaled = miu.rescale_sample(inputTest[:, 2])
@@ -553,7 +642,6 @@ def metamodel_validation_routine_pce_mechanoadaptation_vs_passive_elliptic(
         input_sample_Test_rescaled[k, 3] = gamma_bar_fs_list_rescaled[k]
         input_sample_Test_rescaled[k, 4] = gamma_bar_lambda_list_rescaled[k]
         input_sample_Test_rescaled[k, 5] = r_bar_list_rescaled[k]
-
     metamodel_validator = metamodelvalidation.validate_metamodel_with_test(
         input_sample_Test_rescaled, outputTest, metamodel
     )
@@ -588,7 +676,7 @@ def metamodel_validation_routine_kriging_constant_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "Kriging"
@@ -598,13 +686,12 @@ def metamodel_validation_routine_kriging_constant_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_constant_elliptic', training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_constant_elliptic(shuffled_sample)
-
     metamodelvalidation.plot_prediction_vs_true_value_manual_constant_elliptic(
         type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     )
@@ -636,7 +723,7 @@ def metamodel_validation_routine_kriging_mechanoadaptation_circular(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "Kriging"
@@ -646,13 +733,12 @@ def metamodel_validation_routine_kriging_mechanoadaptation_circular(
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_circular', training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_circular(shuffled_sample)
-
     metamodelvalidation.plot_prediction_vs_true_value_manual_mechanoadaptation_circular(
         type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     )
@@ -684,7 +770,7 @@ def metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_circular(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "Kriging"
@@ -694,13 +780,12 @@ def metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_circular(
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_vs_passive_circular', training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_vs_passive_circular(shuffled_sample)
-
     metamodelvalidation.plot_prediction_vs_true_value_manual_mechanoadaptation_vs_passive_circular(
         type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     )
@@ -732,7 +817,7 @@ def metamodel_validation_routine_kriging_mechanoadaptation_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "Kriging"
@@ -742,13 +827,12 @@ def metamodel_validation_routine_kriging_mechanoadaptation_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_elliptic', training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_elliptic(shuffled_sample)
-
     metamodelvalidation.plot_prediction_vs_true_value_manual_mechanoadaptation_elliptic(
         type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     )
@@ -780,7 +864,7 @@ def metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     type_of_metamodel: string
         Name of the metamodel that has been computed. Possible value:
             "Kriging"
@@ -790,13 +874,12 @@ def metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     complete_pkl_filename = miu.create_pkl_name(type_of_metamodel + '_mechanoadaptation_vs_passive_elliptic', training_amount)
     shuffled_sample, results_from_algo = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename)
     metamodel = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo)
     inputTest, outputTest = datapresetting.extract_testing_data_mechanoadaptation_vs_passive_elliptic(shuffled_sample)
-
     metamodelvalidation.plot_prediction_vs_true_value_manual_mechanoadaptation_vs_passive_elliptic(
         type_of_metamodel, inputTest, outputTest, metamodel, createfigure, savefigure, xticks, pixels
     )
@@ -826,8 +909,8 @@ def plot_Q2_vs_degree_pce_constant_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     palette = sns.color_palette("Set2")
     vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
@@ -878,8 +961,8 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_circular(
     Returns:
     -------
     None
-    """
 
+    """
     palette = sns.color_palette("Set2")
     vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
@@ -930,8 +1013,8 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
     Returns:
     -------
     None
-    """
 
+    """
     palette = sns.color_palette("Set2")
     vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
@@ -982,8 +1065,8 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     palette = sns.color_palette("Set2")
     vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
@@ -1034,8 +1117,8 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     palette = sns.color_palette("Set2")
     vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
@@ -1089,7 +1172,7 @@ def optimize_degree_pce_constant_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     degree_list: list
         List of the truncature degrees to be investigated
     training_amount: float (between 0 and 1)
@@ -1098,8 +1181,8 @@ def optimize_degree_pce_constant_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     Q2_list = []
     residual_list = []
     relativeerror_list = []
@@ -1119,11 +1202,9 @@ def optimize_degree_pce_constant_elliptic(
         Q2_list.append(Q2[0])
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
-
     plot_Q2_vs_degree_pce_constant_elliptic(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
-
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
     optimal_degree = degree_list[max_Q2_index]
@@ -1150,7 +1231,7 @@ def optimize_degree_pce_mechanoadaptation_circular(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     degree_list: list
         List of the truncature degrees to be investigated
     training_amount: float (between 0 and 1)
@@ -1159,8 +1240,8 @@ def optimize_degree_pce_mechanoadaptation_circular(
     Returns:
     -------
     None
-    """
 
+    """
     Q2_list = []
     residual_list = []
     relativeerror_list = []
@@ -1180,11 +1261,9 @@ def optimize_degree_pce_mechanoadaptation_circular(
         Q2_list.append(Q2[0])
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
-
     plot_Q2_vs_degree_pce_mechanoadaptation_circular(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
-
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
     optimal_degree = degree_list[max_Q2_index]
@@ -1211,7 +1290,7 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_circular(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     degree_list: list
         List of the truncature degrees to be investigated
     training_amount: float (between 0 and 1)
@@ -1220,8 +1299,8 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_circular(
     Returns:
     -------
     None
-    """
 
+    """
     Q2_list = []
     residual_list = []
     relativeerror_list = []
@@ -1241,11 +1320,9 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_circular(
         Q2_list.append(Q2[0])
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
-
     plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
-
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
     optimal_degree = degree_list[max_Q2_index]
@@ -1272,7 +1349,7 @@ def optimize_degree_pce_mechanoadaptation_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     degree_list: list
         List of the truncature degrees to be investigated
     training_amount: float (between 0 and 1)
@@ -1281,8 +1358,8 @@ def optimize_degree_pce_mechanoadaptation_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     Q2_list = []
     residual_list = []
     relativeerror_list = []
@@ -1302,11 +1379,9 @@ def optimize_degree_pce_mechanoadaptation_elliptic(
         Q2_list.append(Q2[0])
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
-
     plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
-
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
     optimal_degree = degree_list[max_Q2_index]
@@ -1333,7 +1408,7 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_elliptic(
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     metamodelvalidation: class
-        Tool from the Openturns library used to validate a metamodel
+        Tool from the OpenTURNS library used to validate a metamodel
     degree_list: list
         List of the truncature degrees to be investigated
     training_amount: float (between 0 and 1)
@@ -1342,8 +1417,8 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_elliptic(
     Returns:
     -------
     None
-    """
 
+    """
     Q2_list = []
     residual_list = []
     relativeerror_list = []
@@ -1363,11 +1438,9 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_elliptic(
         Q2_list.append(Q2[0])
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
-
     plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
-
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
     optimal_degree = degree_list[max_Q2_index]
@@ -1383,15 +1456,15 @@ def plot_PDF_pce_kriging_constant_elliptic(metamodelposttreatment, degree, train
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
 
     Returns:
     -------
     None
-    """
 
+    """
     filename_qMC_constant_elliptic = "dataset_for_metamodel_creation_feq_constant_elliptic.txt"
     datapresetting = DataPreSetting(filename_qMC_constant_elliptic, training_amount)
     shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
@@ -1400,11 +1473,9 @@ def plot_PDF_pce_kriging_constant_elliptic(metamodelposttreatment, degree, train
     )
     factory = ot.UserDefinedFactory()
     r_bar_distribution = factory.build(input_sample_training[:, 2])   
-    
     distribution_input = ot.ComposedDistribution([ot.Uniform(1, 8), ot.Uniform(0.5, 5.5), r_bar_distribution])
     experiment_input = ot.MonteCarloExperiment(distribution_input, int(1e5))
     sample_input_MC = experiment_input.generate()
-
     complete_pkl_filename_pce = miu.create_pkl_name("PCE_constant_elliptic" + str(degree), training_amount)
     shuffled_sample, results_from_algo_pce = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename_pce)
     metamodel_pce = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo_pce)
@@ -1423,7 +1494,6 @@ def plot_PDF_pce_kriging_constant_elliptic(metamodelposttreatment, degree, train
     output_model = shuffled_sample[:, -2]
     output_pce = metamodel_pce(input_sample_rescaled)
     output_kriging = metamodel_kriging(input_sample)
-
     X_plot = np.linspace(0, 1, 1000)[:, None]
     kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_model)
     log_dens_model = kde_model.score_samples(X_plot)
@@ -1445,7 +1515,6 @@ def plot_PDF_pce_kriging_constant_elliptic(metamodelposttreatment, degree, train
         linestyle="-", label="model",
     )
     ax.hist(shuffled_sample[:, -2], bins=20, density=True, color="lightgray", alpha = 0.3, ec="black")
-
     ax.plot(
         X_plot[:, 0],
         np.exp(log_dens_kriging),
@@ -1487,19 +1556,18 @@ def plot_PDF_pce_kriging_mechanoadaptation_circular(metamodelposttreatment, degr
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
 
     Returns:
     -------
     None
-    """
 
+    """
     distribution_input = ot.ComposedDistribution([ot.Uniform(1, 6), ot.Uniform(-0.45, 0.45), ot.Uniform(10, 100)])
     experiment_input = ot.MonteCarloExperiment(distribution_input, int(1e5))
     sample_input_MC = experiment_input.generate()
-
     complete_pkl_filename_pce = miu.create_pkl_name("PCE_mechanoadaptation_circular" + str(degree), training_amount)
     shuffled_sample, results_from_algo_pce = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename_pce)
     metamodel_pce = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo_pce)
@@ -1518,9 +1586,7 @@ def plot_PDF_pce_kriging_mechanoadaptation_circular(metamodelposttreatment, degr
     output_model = shuffled_sample[:, -1]
     output_pce = metamodel_pce(input_sample_rescaled)
     output_kriging = metamodel_kriging(input_sample)
-
     X_plot = np.linspace(0, 1, 1000)[:, None]
-
     kde_model = KernelDensity(kernel='gaussian', bandwidth=0.03).fit(output_model)
     log_dens_model = kde_model.score_samples(X_plot)
     kde_kriging = KernelDensity(kernel='gaussian', bandwidth=0.03).fit(output_kriging)
@@ -1541,7 +1607,6 @@ def plot_PDF_pce_kriging_mechanoadaptation_circular(metamodelposttreatment, degr
         linestyle="-", label="model",
     )
     ax.hist(shuffled_sample[:, -1], bins=20, density=True, color="lightgray", alpha = 0.3, ec="black")
-
     ax.plot(
         X_plot[:, 0],
         np.exp(log_dens_kriging),
@@ -1583,15 +1648,15 @@ def plot_PDF_pce_kriging_mechanoadaptation_vs_passive_circular(metamodelposttrea
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
 
     Returns:
     -------
     None
+
     """
-    
     distribution_input = ot.ComposedDistribution([ot.Uniform(1, 8), ot.Uniform(0.5, 5.5), ot.Uniform(1, 6), ot.Uniform(-0.45, 0.45), ot.Uniform(10, 100)])
     experiment_input = ot.MonteCarloExperiment(distribution_input, int(1e5))
     sample_input_MC = experiment_input.generate()
@@ -1601,7 +1666,6 @@ def plot_PDF_pce_kriging_mechanoadaptation_vs_passive_circular(metamodelposttrea
     complete_pkl_filename_kriging = miu.create_pkl_name("Kriging_mechanoadaptation_vs_passive_circular", training_amount)
     _, results_from_algo_kriging = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename_kriging)
     metamodel_kriging = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo_kriging)
-
     gamma_bar_0_list_rescaled = miu.rescale_sample(sample_input_MC[:, 0])
     sigma_bar_list_rescaled = miu.rescale_sample(sample_input_MC[:, 1])
     gamma_bar_r_list_rescaled = miu.rescale_sample(sample_input_MC[:, 2])
@@ -1614,21 +1678,17 @@ def plot_PDF_pce_kriging_mechanoadaptation_vs_passive_circular(metamodelposttrea
         input_sample_rescaled[k, 2] = gamma_bar_r_list_rescaled[k]
         input_sample_rescaled[k, 3] = gamma_bar_fs_bar_list_rescaled[k]
         input_sample_rescaled[k, 4] = gamma_bar_lambda_list_rescaled[k]
-
     input_sample = sample_input_MC#ot.Sample(shuffled_sample[:, 0:5])
     output_model = shuffled_sample[:, -2]
     output_pce = metamodel_pce(input_sample_rescaled)
     output_kriging = metamodel_kriging(input_sample)
-
     X_plot = np.linspace(0, 1, 1000)[:, None]
-
     kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_model)
     log_dens_model = kde_model.score_samples(X_plot)
     kde_kriging = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_kriging)
     log_dens_kriging = kde_kriging.score_samples(X_plot)
     kde_pce = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_pce)
     log_dens_pce = kde_pce.score_samples(X_plot)
-
     fig = createfigure.square_figure_7(pixels=pixels)
     ax = fig.gca()
     palette = sns.color_palette("Paired")
@@ -1683,15 +1743,15 @@ def plot_PDF_pce_kriging_mechanoadaptation_elliptic(metamodelposttreatment, degr
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
 
     Returns:
     -------
     None
+
     """
-    
     filename_qMC_mechanoadaptation_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_elliptic.txt"
     datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_elliptic, training_amount)
     shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
@@ -1700,11 +1760,9 @@ def plot_PDF_pce_kriging_mechanoadaptation_elliptic(metamodelposttreatment, degr
     )
     factory = ot.UserDefinedFactory()
     r_bar_distribution = factory.build(input_sample_training[:, 3])   
-
     distribution_input = ot.ComposedDistribution([ot.Uniform(1, 6), ot.Uniform(-0.45, 0.45), ot.Uniform(10, 100), r_bar_distribution])
     experiment_input = ot.MonteCarloExperiment(distribution_input, int(1e5))
     sample_input_MC = experiment_input.generate()
-
     complete_pkl_filename_pce = miu.create_pkl_name("PCE_mechanoadaptation_elliptic" + str(degree), training_amount)
     shuffle_sample, results_from_algo_pce = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename_pce)
     metamodel_pce = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo_pce)
@@ -1726,7 +1784,6 @@ def plot_PDF_pce_kriging_mechanoadaptation_elliptic(metamodelposttreatment, degr
     output_pce = metamodel_pce(input_sample_rescaled)
     output_kriging = metamodel_kriging(input_sample)
     X_plot = np.linspace(0, 1, 1000)[:, None]
-
     kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_model)
     log_dens_model = kde_model.score_samples(X_plot)
     kde_kriging = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_kriging)
@@ -1739,7 +1796,6 @@ def plot_PDF_pce_kriging_mechanoadaptation_elliptic(metamodelposttreatment, degr
     orange = palette[-5]
     purple = palette[-3]
     ax.hist(output_model, bins=20, density=True, color="lightgray", alpha = 0.3, ec="black")
-
     ax.plot(
         X_plot[:, 0],
         np.exp(log_dens_model),
@@ -1796,15 +1852,15 @@ def plot_PDF_pce_kriging_mechanoadaptation_vs_passive_elliptic(metamodelposttrea
     metamodelposttreatment: class from the metamodel_creation.py script
         A class that extracts and exports the features of the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
     training_amount: float (between 0 and 1)
         Amount of the data that is used to train the metamodel
 
     Returns:
     -------
     None
-    """
 
+    """
     filename_qMC_mechanoadaptation_vs_passive_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_vs_passive_elliptic.txt"
     datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_vs_passive_elliptic, training_amount)
     shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
@@ -1813,18 +1869,15 @@ def plot_PDF_pce_kriging_mechanoadaptation_vs_passive_elliptic(metamodelposttrea
     )
     factory = ot.UserDefinedFactory()
     r_bar_distribution = factory.build(input_sample_training[:, 5])   
-
     distribution_input = ot.ComposedDistribution([ot.Uniform(1, 8), ot.Uniform(0.5, 5.5), ot.Uniform(1, 6), ot.Uniform(-0.45, 0.45), ot.Uniform(10, 100), r_bar_distribution])
     experiment_input = ot.MonteCarloExperiment(distribution_input, int(1e5))
     sample_input_MC = experiment_input.generate()
-
     complete_pkl_filename_pce = miu.create_pkl_name("PCE_mechanoadaptation_vs_passive_elliptic" + str(degree), training_amount)
     shuffled_sample, results_from_algo_pce = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename_pce)
     metamodel_pce = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo_pce)
     complete_pkl_filename_kriging = miu.create_pkl_name("Kriging_mechanoadaptation_vs_passive_elliptic", training_amount)
     _, results_from_algo_kriging = miu.extract_metamodel_and_data_from_pkl(complete_pkl_filename_kriging)
     metamodel_kriging = metamodelposttreatment.get_metamodel_from_results_algo(results_from_algo_kriging)
-
     gamma_bar_0_list_rescaled = miu.rescale_sample(sample_input_MC[:, 0])
     sigma_bar_list_rescaled = miu.rescale_sample(sample_input_MC[:, 1])
     gamma_bar_r_list_rescaled = miu.rescale_sample(sample_input_MC[:, 2])
@@ -1839,25 +1892,20 @@ def plot_PDF_pce_kriging_mechanoadaptation_vs_passive_elliptic(metamodelposttrea
         input_sample_rescaled[k, 3] = gamma_bar_fs_list_rescaled[k]
         input_sample_rescaled[k, 4] = gamma_bar_lambda_list_rescaled[k]
         input_sample_rescaled[k, 5] = r_bar_list_rescaled[k]
-        
     input_sample = sample_input_MC
     output_model = shuffled_sample[:, -2]
     output_pce = metamodel_pce(input_sample_rescaled)
     output_kriging = metamodel_kriging(input_sample)
-
     X_plot = np.linspace(0, 1, 2000)[:, None]
-
     kde_model = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_model)
     log_dens_model = kde_model.score_samples(X_plot)
     kde_kriging = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_kriging)
     log_dens_kriging = kde_kriging.score_samples(X_plot)
     kde_pce = KernelDensity(kernel='gaussian', bandwidth=0.02).fit(output_pce)
     log_dens_pce = kde_pce.score_samples(X_plot)
-
     fig = createfigure.square_figure_7(pixels=pixels)
     ax = fig.gca()
     ax.hist(output_model, bins=20, density=True, color="lightgray", alpha = 0.3, ec="black")
-
     palette = sns.color_palette("Paired")
     orange = palette[-5]
     purple = palette[-3]
