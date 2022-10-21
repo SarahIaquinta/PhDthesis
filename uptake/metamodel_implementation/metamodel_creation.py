@@ -1,10 +1,7 @@
 from pathlib import Path
-import time
 import numpy as np
 import openturns as ot
-
 ot.Log.Show(ot.Log.NONE)
-from uptake.figures.utils import CreateFigure, Fonts, SaveFigure, XTickLabels, XTicks
 import uptake.metamodel_implementation.utils as miu
 
 
