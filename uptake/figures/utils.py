@@ -115,13 +115,6 @@ class SaveFigure:
         png2 = Image.open(png1)
         png2.save(filename + ".png")
 
-    def save_as_tiff(self, fig, filename):
-        png1 = BytesIO()
-        fig.savefig(png1, format="png")
-        png2 = Image.open(png1)
-        png2.save(filename + ".tiff")
-
-
 class CreateFigure:
     def rectangle_figure(self, pixels):
         fig = plt.figure(figsize=(9, 6), dpi=pixels, constrained_layout=True)
