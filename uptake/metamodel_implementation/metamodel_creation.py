@@ -41,8 +41,8 @@ class DataPreSetting:
         Returns:
         -------
         None
-        """
 
+        """
         self.filename = Path.cwd() / "metamodel_implementation" / filename
         self.training_amount = training_amount
 
@@ -57,8 +57,8 @@ class DataPreSetting:
         -------
         sample: ot class
             Shuffled input dataset
-        """
 
+        """
         sample = ot.Sample.ImportFromTextFile(self.filename.as_posix(), "\t", 0)
         np.random.shuffle(sample)
         return sample
@@ -77,10 +77,9 @@ class DataPreSetting:
             Part of the input data used to train the metamodel
         shuffled_training_output_sample: ot class
             Output data corresponding to the shuffled_training_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
-        # datasize = 1000
         shuffled_training_input_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), 0:3])
         shuffled_training_output_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), -2])
         return shuffled_training_input_sample, shuffled_training_output_sample
@@ -99,10 +98,9 @@ class DataPreSetting:
             Part of the input data used to train the metamodel
         shuffled_training_output_sample: ot class
             Output data corresponding to the shuffled_training_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
-        # datasize = 1000
         shuffled_training_input_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), 0:3])
         shuffled_training_output_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), -1])
         return shuffled_training_input_sample, shuffled_training_output_sample
@@ -121,8 +119,8 @@ class DataPreSetting:
             Part of the input data used to train the metamodel
         shuffled_training_output_sample: ot class
             Output data corresponding to the shuffled_training_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
         shuffled_training_input_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), 0:5])
         shuffled_training_output_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), -2])
@@ -142,8 +140,8 @@ class DataPreSetting:
             Part of the input data used to train the metamodel
         shuffled_training_output_sample: ot class
             Output data corresponding to the shuffled_training_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
         shuffled_training_input_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), 0:4])
         shuffled_training_output_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), -1])
@@ -163,10 +161,9 @@ class DataPreSetting:
             Part of the input data used to train the metamodel
         shuffled_training_output_sample: ot class
             Output data corresponding to the shuffled_training_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
-        # datasize = 1000
         shuffled_training_input_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), 0:6])
         shuffled_training_output_sample = ot.Sample(shuffled_sample[: int(self.training_amount * datasize), -2])
         return shuffled_training_input_sample, shuffled_training_output_sample
@@ -185,10 +182,9 @@ class DataPreSetting:
             Part of the input data used to test the metamodel
         shuffled_testing_output_sample: ot class
             Output data corresponding to the shuffled_testing_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
-        # datasize = 1000
         shuffled_testing_input_sample = ot.Sample(
             shuffled_sample[int(self.training_amount * datasize + 1) : datasize, 0:3]
         )
@@ -211,10 +207,9 @@ class DataPreSetting:
             Part of the input data used to test the metamodel
         shuffled_testing_output_sample: ot class
             Output data corresponding to the shuffled_testing_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
-        # datasize = 1000
         shuffled_testing_input_sample = ot.Sample(
             shuffled_sample[int(self.training_amount * datasize + 1) : datasize, 0:3]
         )
@@ -237,8 +232,8 @@ class DataPreSetting:
             Part of the input data used to test the metamodel
         shuffled_testing_output_sample: ot class
             Output data corresponding to the shuffled_testing_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
         shuffled_testing_input_sample = ot.Sample(
             shuffled_sample[int(self.training_amount * datasize + 1) : datasize, 0:5]
@@ -262,8 +257,8 @@ class DataPreSetting:
             Part of the input data used to test the metamodel
         shuffled_testing_output_sample: ot class
             Output data corresponding to the shuffled_testing_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
         shuffled_testing_input_sample = ot.Sample(
             shuffled_sample[int(self.training_amount * datasize + 1) : datasize, 0:4]
@@ -287,10 +282,9 @@ class DataPreSetting:
             Part of the input data used to test the metamodel
         shuffled_testing_output_sample: ot class
             Output data corresponding to the shuffled_testing_input_sample
-        """
 
+        """
         datasize, _ = np.shape(shuffled_sample)
-        # datasize = 1000
         shuffled_testing_input_sample = ot.Sample(
             shuffled_sample[int(self.training_amount * datasize + 1) : datasize, 0:6]
         )
@@ -317,8 +311,8 @@ class MetamodelCreation:
     create_pce_algorithm(self, degree):
         Computes the Polynomial Chaos Expansion (Functional Chaos) metamodel algorithm of the
         Openturns library
+    
     """
-
     def __init__(self, input_sample_training, output_sample_training):
         """Constructs all the necessary attributes for the MetamodelCreation object.
 
@@ -332,8 +326,8 @@ class MetamodelCreation:
         Returns:
         -------
         None
-        """
 
+        """
         self.input_sample_training = input_sample_training
         self.output_sample_training = output_sample_training
         _, self.dimension = np.shape(self.input_sample_training)
@@ -349,8 +343,8 @@ class MetamodelCreation:
         -------
         kriging_algorithm: ot class
             Kriging algorithm from the Openturns library
-        """
 
+        """
         basis = ot.ConstantBasisFactory(self.dimension)
         cov = ot.SquaredExponential(self.dimension)
         kriging_algorithm = ot.KrigingAlgorithm(self.input_sample_training, self.output_sample_training, cov, basis)
@@ -368,8 +362,8 @@ class MetamodelCreation:
         -------
         pce_algorithm: ot class
             PCE algorithm from the Openturns library
-        """
 
+        """
         distribution = ot.ComposedDistribution([ot.Uniform(-1, 1), ot.Uniform(-1, 1), ot.Uniform(-1, 1)])
 
         gamma_bar_r_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 0])
@@ -402,7 +396,7 @@ class MetamodelCreation:
 
     def create_pce_algorithm_constant_elliptic(self, degree):
         """
-        computes the pce Algorithm of the Openturns library
+        Computes the pce Algorithm of the Openturns library
 
         Parameters:
             ----------
@@ -415,7 +409,6 @@ class MetamodelCreation:
                 pce algorithm from the Openturns library
 
         """
-
         gamma_bar_0_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 0])
         sigma_bar_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 1])
         r_bar_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 2])
@@ -460,8 +453,8 @@ class MetamodelCreation:
         -------
         pce_algorithm: ot class
             PCE algorithm from the Openturns library
-        """
 
+        """
         distribution = ot.ComposedDistribution([ ot.Uniform(-1, 1), ot.Uniform(-1, 1), ot.Uniform(-1, 1)])
 
         gamma_bar_r_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 0])
@@ -505,8 +498,8 @@ class MetamodelCreation:
         -------
         pce_algorithm: ot class
             PCE algorithm from the Openturns library
-        """
 
+        """
         distribution = ot.ComposedDistribution([ot.Uniform(-1, 1), ot.Uniform(-1, 1), ot.Uniform(-1, 1), ot.Uniform(-1, 1), ot.Uniform(-1, 1)])
 
         gamma_bar_0_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 0])
@@ -553,8 +546,8 @@ class MetamodelCreation:
         -------
         pce_algorithm: ot class
             PCE algorithm from the Openturns library
-        """
 
+        """
         gamma_bar_r_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 0])
         gamma_bar_fs_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 1])
         gamma_bar_lambda_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 2])
@@ -596,8 +589,7 @@ class MetamodelCreation:
         return pce_algorithm
 
     def create_pce_algorithm_mechanoadaptation_vs_passive_elliptic(self, degree):
-        """
-        computes the pce Algorithm of the Openturns library
+        """Computes the pce Algorithm of the Openturns library
 
         Parameters:
             ----------
@@ -610,7 +602,6 @@ class MetamodelCreation:
                 pce algorithm from the Openturns library
 
         """
-
         gamma_bar_0_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 0])
         sigma_bar_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 1])
         gamma_bar_r_list_rescaled = miu.rescale_sample(self.input_sample_training[:, 2])
@@ -670,8 +661,8 @@ class MetamodelPostTreatment:
         Gets the metamodel from the algorithm's results
     get_errors_from_metamodel(self, results_from_algo):
         Gets the errors from the metamodel (obtained according to the results_from_algo)
-    """
 
+    """
     def __init__(self):
         """Constructs all the necessary attributes for the MetamodelPostTreatment object.
 
@@ -682,8 +673,8 @@ class MetamodelPostTreatment:
         Returns:
         -------
         None
-        """
 
+        """
     def run_algorithm(self, algorithm):
         """Runs the algorithm
 
@@ -696,8 +687,8 @@ class MetamodelPostTreatment:
         Returns:
         -------
         None
-        """
 
+        """
         algorithm.run()
 
     def extract_results_from_algorithm(self, algorithm):
@@ -731,8 +722,8 @@ class MetamodelPostTreatment:
         metamodel: ot class
             Metamodel computed by the algorithm. contains the information necessary to use the
             metamodel
-        """
 
+        """
         metamodel = results_from_algo.getMetaModel()
         return metamodel
 
@@ -750,8 +741,8 @@ class MetamodelPostTreatment:
             Residual of the metamodel
         relative_error: ot class (array)
             Relative_error of the metamodel
-        """
 
+        """
         residual = results_from_algo.getResiduals()
         relative_error = results_from_algo.getRelativeErrors()
         return residual, relative_error
@@ -777,8 +768,8 @@ def metamodel_creation_routine_kriging(datapresetting, metamodelcreation, metamo
     Returns:
     -------
     None
-    """
 
+    """
     kri = metamodelcreation.create_kriging_algorithm()
     metamodelposttreatment.run_algorithm(kri)
     results_from_kri = metamodelposttreatment.extract_results_from_algorithm(kri)
@@ -805,8 +796,8 @@ def metamodel_creation_routine_kriging_constant_elliptic(datapresetting, metamod
     Returns:
     -------
     None
-    """
 
+    """
     kri = metamodelcreation.create_kriging_algorithm()
     metamodelposttreatment.run_algorithm(kri)
     results_from_kri = metamodelposttreatment.extract_results_from_algorithm(kri)
@@ -833,8 +824,8 @@ def metamodel_creation_routine_kriging_mechanoadaptation_circular(datapresetting
     Returns:
     -------
     None
-    """
 
+    """
     kri = metamodelcreation.create_kriging_algorithm()
     metamodelposttreatment.run_algorithm(kri)
     results_from_kri = metamodelposttreatment.extract_results_from_algorithm(kri)
@@ -861,8 +852,8 @@ def metamodel_creation_routine_kriging_mechanoadaptation_vs_passive_circular(dat
     Returns:
     -------
     None
-    """
 
+    """
     kri = metamodelcreation.create_kriging_algorithm()
     metamodelposttreatment.run_algorithm(kri)
     results_from_kri = metamodelposttreatment.extract_results_from_algorithm(kri)
@@ -889,8 +880,8 @@ def metamodel_creation_routine_kriging_mechanoadaptation_elliptic(datapresetting
     Returns:
     -------
     None
-    """
 
+    """
     kri = metamodelcreation.create_kriging_algorithm()
     metamodelposttreatment.run_algorithm(kri)
     results_from_kri = metamodelposttreatment.extract_results_from_algorithm(kri)
@@ -917,8 +908,8 @@ def metamodel_creation_routine_kriging_mechanoadaptation_vs_passive_elliptic(dat
     Returns:
     -------
     None
-    """
 
+    """
     kri = metamodelcreation.create_kriging_algorithm()
     metamodelposttreatment.run_algorithm(kri)
     results_from_kri = metamodelposttreatment.extract_results_from_algorithm(kri)
@@ -943,7 +934,7 @@ def metamodel_creation_routine_pce(datapresetting, metamodelcreation, metamodelp
     shuffled_sample: ot class
         Sample that was used to create the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
     Returns:
     -------
@@ -973,7 +964,7 @@ def metamodel_creation_routine_pce_constant_elliptic(datapresetting, metamodelcr
     shuffled_sample: ot class
         Sample that was used to create the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
     Returns:
     -------
@@ -1003,7 +994,7 @@ def metamodel_creation_routine_pce_mechanoadaptation_circular(datapresetting, me
     shuffled_sample: ot class
         Sample that was used to create the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
     Returns:
     -------
@@ -1033,7 +1024,7 @@ def metamodel_creation_routine_pce_mechanoadaptation_vs_passive_circular(datapre
     shuffled_sample: ot class
         Sample that was used to create the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
     Returns:
     -------
@@ -1063,7 +1054,7 @@ def metamodel_creation_routine_pce_mechanoadaptation_elliptic(datapresetting, me
     shuffled_sample: ot class
         Sample that was used to create the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
     Returns:
     -------
@@ -1093,7 +1084,7 @@ def metamodel_creation_routine_pce_mechanoadaptation_vs_passive_elliptic(datapre
     shuffled_sample: ot class
         Sample that was used to create the metamodel
     degree: int
-        Dimension of the basis of polynoms
+        Dimension of the basis of polynomials
 
     Returns:
     -------
