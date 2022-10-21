@@ -35,6 +35,7 @@ class EnergyComputation:
         Returns:
             float - the variation of the bending energy in the region 2r (free membrane on the right)
             between the state at wrapping f and the initial state: E(f) - E(0)
+
         """
         a = particle.get_alpha_angle(f)
         t = tan(0.25 * a)
@@ -64,6 +65,7 @@ class EnergyComputation:
         Returns:
             float - the variation of the bending energy in the region 2l (free membrane on the left)
             between the state at wrapping f and the initial state: E(f) - E(0)
+
         """
         adimensionalized_energy_2r = self.compute_bending_energy_zone_2r(f, particle, mechanics, membrane)
         adimensionalized_energy_2l = adimensionalized_energy_2r
@@ -174,8 +176,8 @@ def plot_energy(
     Returns:
         -------
         None
+        
     """
-
     energy_list, _ = energy_computation.compute_total_adimensional_energy_during_wrapping(
         particle, mechanics, wrapping, membrane
     )

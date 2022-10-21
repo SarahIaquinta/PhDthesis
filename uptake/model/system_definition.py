@@ -20,8 +20,8 @@ class Fixed_Mechanical_Properties:
     Methods:
         -------
         None
-    """
 
+    """
     def __init__(
         self,
         gamma_bar_0_list,
@@ -39,6 +39,7 @@ class Fixed_Mechanical_Properties:
         Returns:
             -------
             None
+
         """
         self.gamma_bar_0_list = gamma_bar_0_list
         self.sigma_bar_list = sigma_bar_list
@@ -70,7 +71,6 @@ class MechanicalProperties_Adaptation:
             Plots the evolution of both mechanical parameters with respect to wrapping degree f
 
     """
-
     def __init__(self, testcase, gamma_bar_r, gamma_bar_fs, gamma_bar_lambda, gamma_bar_0, sigma_bar):
         """
         Constructs all the necessary attributes for the mechanical properties object.
@@ -94,6 +94,7 @@ class MechanicalProperties_Adaptation:
         Returns:
             -------
             None
+
         """
         self.testcase = testcase
         self.gamma_bar_r = gamma_bar_r
@@ -119,6 +120,7 @@ class MechanicalProperties_Adaptation:
             -------
             gamma_bar: float
                 adimensional membrane tension
+
         """
         if self.gamma_bar_r == 1:
             gamma_bar = self.gamma_bar_0
@@ -156,6 +158,7 @@ class MechanicalProperties_Adaptation:
             -------
             gamma_bar_list: list
                 value of gamma_bar computed for all values of wrapping
+
         """
         gamma_bar_list = [self.gamma_bar(f, wrapping) for f in wrapping.wrapping_list]
         return gamma_bar_list
@@ -173,11 +176,11 @@ class MechanicalProperties_Adaptation:
         Returns:
             -------
             None
+
         """
         fig = createfigure.rectangle_figure(pixels=360)
         ax = fig.gca()
         gamma_bar_list = self.gamma_bar_variation(wrapping)
-
         ax.plot(
             wrapping.wrapping_list,
             gamma_bar_list,
@@ -197,14 +200,12 @@ class MechanicalProperties_Adaptation:
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_yticks([gamma_bar_list[0], gamma_bar_list[-1]])
         ax.set_yticklabels(
             [np.round(gamma_bar_list[0], 2), np.round(gamma_bar_list[-1], 2)],
             font=fonts.serif(),
             fontsize=fonts.axis_legend_size(),
         )
-
         ax.set_xlabel("f [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
         ax.set_ylabel(r"$\overline{\gamma}$ [ - ] ", font=fonts.serif(), fontsize=fonts.axis_label_size())
         ax.legend(prop=fonts.serif(), loc="upper right", framealpha=0.9)
@@ -244,7 +245,6 @@ class ParticleGeometry:
             Returns the values of dpsi3**2
 
     """
-
     def __init__(self, r_bar, particle_perimeter, sampling_points_circle):
         """
         Constructs all the necessary attributes for the particle object.
@@ -261,14 +261,14 @@ class ParticleGeometry:
         Returns:
             -------
             None
+
         """
         self.sampling_points_circle = sampling_points_circle
         self.r_bar = r_bar
         self.particle_perimeter = particle_perimeter
 
-        # computes the semi-minor and semi-major axes lengths of the elliptic particle
+        # compute the semi-minor and semi-major axes lengths of the elliptic particle
         # using Ramanujan's formula [2]
-
         h = ((self.r_bar - 1) / (self.r_bar + 1)) ** 2
         self.semi_minor_axis = self.particle_perimeter / (pi * (1 + self.r_bar) * (1 + 3 * h / (10 + sqrt(4 - 3 * h))))
         self.semi_major_axis = self.semi_minor_axis * self.r_bar
@@ -339,6 +339,7 @@ class ParticleGeometry:
             -------
             r_coordinate: float
                 r coordinate (see figure *)
+
         """
         compute_x_coordinate = lambda t: self.semi_major_axis * cos(t)
         _, beta_left, _, _, _, _, _, _ = self.define_particle_geometry_variables(f)
@@ -362,6 +363,7 @@ class ParticleGeometry:
             -------
             z_coordinate: float
                 z coordinate (see figure *)
+
         """
         compute_y_coordinate = lambda t: self.semi_minor_axis * sin(t)
         _, beta_left, _, _, _, _, _, _ = self.define_particle_geometry_variables(f)
@@ -605,6 +607,7 @@ class MembraneGeometry:
         Returns:
             -------
             None
+
         """
         self.sampling_points_membrane = sampling_points_membrane
         self.l2 = 20 * particle.effective_radius
@@ -636,6 +639,7 @@ class MembraneGeometry:
                 r coordinate in the region 2r
             z2l: list
                 z coordinate in the region 2l
+
         """
         _, _, _, theta_list_region3, _, _, _, _ = particle.define_particle_geometry_variables(f)
         alpha = particle.get_alpha_angle(f)
@@ -644,7 +648,6 @@ class MembraneGeometry:
         r2r = np.zeros_like(self.S2)
         z2r = np.zeros_like(self.S2)
         sigma = mechanics.sigma_bar
-
         for i in range(1, len(self.S2)):
             s = self.S2[i]
             r = r2r_0 + s - sqrt(2 / sigma) * (1 - cos(alpha)) / (coth(s * sqrt(0.5 * sigma)) + cos(alpha * 0.5))
@@ -653,7 +656,6 @@ class MembraneGeometry:
             )
             r2r[i] = r
             z2r[i] = z
-
         r2r[0] = r2r_0
         z2r[0] = z2r_0
         r2l = np.array([r2r[0] - r2r[s] for s in range(len(self.S2))])
@@ -671,7 +673,6 @@ class Wrapping:
             list of wrapping degrees at which the system is evaluated
 
     """
-
     def __init__(self, wrapping_list):
         """
         Constructs all the necessary attributes for the membrane object.
@@ -684,5 +685,6 @@ class Wrapping:
         Returns:
             -------
             None
+            
         """
         self.wrapping_list = wrapping_list

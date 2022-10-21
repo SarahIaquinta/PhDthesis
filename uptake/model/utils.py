@@ -13,6 +13,7 @@ def define_pkl_filename(particle, mechanics):
         params: class of input parameters
     Returns:
         str: name of the output pkl file
+        
     """
     outfile = mechanics.testcase
     outfile += "_r="

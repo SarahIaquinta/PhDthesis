@@ -556,8 +556,8 @@ def compute_sensitivity_indices_PCE(training_amount, degree):
     total_order_indices: list
         Total order Sobol indices. Position in the list follows the position in the datafile:
         gamma_bar_r, gamma_bar_fs, gamma_bar_lambda
-    """
 
+    """
     complete_filename = miu.create_pkl_name("PCE_mechanoadaptation_elliptic" + str(degree), training_amount, folder="")
     [_, results_from_algo] = miu.extract_metamodel_and_data_from_pkl(complete_filename)
     chaosSI = ot.FunctionalChaosSobolIndices(results_from_algo)

@@ -1,8 +1,6 @@
 from datetime import timedelta
 from math import pi
-
 import numpy as np
-
 from uptake.model.system_definition import MechanicalProperties_Adaptation, MembraneGeometry, ParticleGeometry, Wrapping
 
 
@@ -23,6 +21,7 @@ def generate_MechanicalProperties_Adaptation_classes(
         mech_properties : generator - set of the possible combinations of
                                     all the input parameters for the
                                     MechanicalProperties_Adaptation class
+
     """
     for fixed_mech_properties_arguments in mech_properties_argument_generator_fixed:
         testcase_number = str(next(testcase_number_generator))
@@ -38,6 +37,7 @@ def generate_Particle_classes(r_bar_generator):
                                     possible r_bar
     Returns:
         particle : generator of the class Particle
+        
     """
     for r_bar_argument in r_bar_generator:
         particle = ParticleGeometry(*r_bar_argument, 2 * pi, 300)
