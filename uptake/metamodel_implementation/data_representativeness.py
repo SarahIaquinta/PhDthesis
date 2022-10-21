@@ -1452,8 +1452,6 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        palette = sns.color_palette("Set2")
-        vert = palette[0]
         
         X_plot = np.linspace(0, 1, 2000)[:, None]
 
@@ -1505,9 +1503,7 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_phase3] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        palette = sns.color_palette("Set2")
-        vert = palette[0]
-        
+
         X_plot = np.linspace(0, 1, 1000)[:, None]
 
         kde_model = KernelDensity(kernel='gaussian', bandwidth=0.03).fit(all_shuffled_phase3[:, 0].reshape(-1, 1))
@@ -1556,8 +1552,6 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        palette = sns.color_palette("Set2")
-        vert = palette[0]
         
         X_plot = np.linspace(0, 1, 2000)[:, None]
 
@@ -1609,8 +1603,6 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_phase3] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        palette = sns.color_palette("Set2")
-        vert = palette[0]
         
         X_plot = np.linspace(0, 1, 1000)[:, None]
 
@@ -1663,8 +1655,6 @@ class SampleRepresentativeness:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
         ax = fig.gca()
-        palette = sns.color_palette("Set2")
-        vert = palette[0]
         
         X_plot = np.linspace(0, 1, 2000)[:, None]
 
