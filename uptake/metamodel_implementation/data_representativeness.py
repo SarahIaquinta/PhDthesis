@@ -26,7 +26,6 @@ class SampleRepresentativeness:
             -------
             None
         """
-
         self.filename = Path.cwd() / "metamodel_implementation" / filename
         self.pixels = pixels
         self.resampling_size = resampling_size
@@ -127,9 +126,10 @@ class SampleRepresentativeness:
 
     def generate_shuffled_samples_mechanoadaptation_vs_passive_elliptic(self):
         """
-        Shuffles the dataset output (feq) self.resampling_size times
-        The input text file named filename has the following columns (all floats):
-        gamma_bar_0 ; sigma_bar ; gamma_bar_r ; gamma_bar_fs ; gamma_bar_lambda ; r_bar ; f_eq ; phasis number
+        Shuffles the dataset output (feq) self.resampling_size times 
+        The input text file named filename has the following columns (all floats): gamma_bar_0 ; 
+        sigma_bar ; gamma_bar_r ; gamma_bar_fs ; gamma_bar_lambda ; r_bar ; f_eq ; phasis number 
+        
         Parameters:
             ----------
             None
