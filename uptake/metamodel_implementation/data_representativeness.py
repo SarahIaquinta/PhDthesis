@@ -198,11 +198,12 @@ class SampleRepresentativeness:
                 cumulative std of one shuffled sample
             std_of_cumulative_stds: array
                 std of the cumulative_std of all the shuffled samples
-            all_shuffled_phase3: array
+            all_shuffled_feq: array
                 shuffled samples used in this method.
                 output of the self.generate_shuffled_samples() method
 
-            These objects are exported in a .pkl file named "data_representativeness.pkl"
+            These objects are exported in a .pkl file named
+                "data_representativeness_constant_elliptic.pkl"
 
         """
         all_shuffled_feq = self.generate_shuffled_samples_constant_elliptic()
@@ -256,7 +257,8 @@ class SampleRepresentativeness:
                 shuffled samples used in this method.
                 output of the self.generate_shuffled_samples() method
 
-            These objects are exported in a .pkl file named "data_representativeness.pkl"
+            These objects are exported in a .pkl file named 
+                "data_representativeness_mechanoadaptation_circular.pkl"
 
         """
         all_shuffled_phase3 = self.generate_shuffled_samples_mechanoadaptation_circular()
@@ -306,11 +308,12 @@ class SampleRepresentativeness:
                 cumulative std of one shuffled sample
             std_of_cumulative_stds: array
                 std of the cumulative_std of all the shuffled samples
-            all_shuffled_phase3: array
+            all_shuffled_feq: array
                 shuffled samples used in this method.
                 output of the self.generate_shuffled_samples() method
 
-            These objects are exported in a .pkl file named "data_representativeness.pkl"
+            These objects are exported in a .pkl file named 
+                "data_representativeness_mechanoadaptation_vs_passive_circular.pkl"
 
         """
         all_shuffled_feq = self.generate_shuffled_samples_mechanoadaptation_vs_passive_circular()
@@ -364,7 +367,8 @@ class SampleRepresentativeness:
                 shuffled samples used in this method.
                 output of the self.generate_shuffled_samples() method
 
-            These objects are exported in a .pkl file named "data_representativeness.pkl"
+            These objects are exported in a .pkl file named 
+                "data_representativeness_mechanoadaptation_elliptic.pkl"
 
         """
         all_shuffled_phase3 = self.generate_shuffled_samples_mechanoadaptation_elliptic()
@@ -414,11 +418,12 @@ class SampleRepresentativeness:
                 cumulative std of one shuffled sample
             std_of_cumulative_stds: array
                 std of the cumulative_std of all the shuffled samples
-            all_shuffled_phase3: array
+            all_shuffled_feq: array
                 shuffled samples used in this method.
                 output of the self.generate_shuffled_samples() method
 
-            These objects are exported in a .pkl file named "data_representativeness.pkl"
+            These objects are exported in a .pkl file named 
+                "data_representativeness_mechanoadaptation_vs_passive_elliptic.pkl"
 
         """
         all_shuffled_feq = self.generate_shuffled_samples_mechanoadaptation_vs_passive_elliptic()
@@ -450,9 +455,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative mean of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative mean of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -502,9 +506,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative mean of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative mean of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -554,9 +557,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative mean of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative mean of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -606,9 +608,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative mean of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative mean of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -658,9 +659,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative mean of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative mean of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -710,9 +710,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative std of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative std of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -761,9 +760,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative std of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative std of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -812,9 +810,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative std of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative std of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -863,9 +860,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative std of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative std of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
@@ -914,9 +910,8 @@ class SampleRepresentativeness:
         fonts,
     ):
         """
-        Plots the cumulative std of a sample with the
-            std (computed from the self.resampling_size shuffled
-                samples)
+        Plots the cumulative std of a sample with the std 
+            (computed from the self.resampling_size shuffled samples)
 
         Parameters:
             ----------
