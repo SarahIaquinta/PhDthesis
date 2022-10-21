@@ -1906,11 +1906,9 @@ if __name__ == "__main__":
     metamodelvalidation = MetamodelValidation()
 
     ### Constant elliptic ###
-
     filename_qMC_constant_elliptic = "dataset_for_metamodel_creation_feq_constant_elliptic.txt"
     training_amount_constant_elliptic = 0.9
     degree_list_constant_elliptic = np.arange(1, 21)
-
     datapresetting_constant_elliptic = DataPreSetting(filename_qMC_constant_elliptic, training_amount_constant_elliptic)
     optimal_degree_constant_elliptic = optimize_degree_pce_constant_elliptic(
                                                                              datapresetting_constant_elliptic,
@@ -1935,7 +1933,6 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-
     metamodel_validation_routine_kriging_constant_elliptic(
         datapresetting_constant_elliptic,
         metamodelposttreatment,
@@ -1947,15 +1944,12 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-    
     plot_PDF_pce_kriging_constant_elliptic(metamodelposttreatment, optimal_degree_constant_elliptic, training_amount_constant_elliptic)
 
     ### Mechanoadaptation circular ###
-
     filename_qMC_mechanoadaptation_circular = "dataset_for_metamodel_creation_mechanoadaptation_circular.txt"
     training_amount_mechanoadaptation_circular = 0.8
     degree_list_mechanoadaptation_circular = np.arange(1, 12)
-
     datapresetting_mechanoadaptation_circular = DataPreSetting(filename_qMC_mechanoadaptation_circular, training_amount_mechanoadaptation_circular)
     optimal_degree_mechanoadaptation_circular = optimize_degree_pce_mechanoadaptation_circular(
                                                                              datapresetting_mechanoadaptation_circular,
@@ -1980,7 +1974,6 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-
     metamodel_validation_routine_kriging_mechanoadaptation_circular(
         datapresetting_mechanoadaptation_circular,
         metamodelposttreatment,
@@ -1992,15 +1985,12 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-    
     plot_PDF_pce_kriging_mechanoadaptation_circular(metamodelposttreatment, optimal_degree_mechanoadaptation_circular, training_amount_mechanoadaptation_circular)
 
     ### Mechanoadaptation vs passive circular ###
-
     filename_qMC_mechanoadaptation_vs_passive_circular = "dataset_for_metamodel_creation_mechanoadaptation_vs_passive_circular.txt"
     training_amount_mechanoadaptation_vs_passive_circular = 0.8
     degree_list_mechanoadaptation_vs_passive_circular = np.arange(1, 8)
-
     datapresetting_mechanoadaptation_vs_passive_circular = DataPreSetting(filename_qMC_mechanoadaptation_vs_passive_circular, training_amount_mechanoadaptation_vs_passive_circular)
     optimal_degree_mechanoadaptation_vs_passive_circular = optimize_degree_pce_mechanoadaptation_vs_passive_circular(
                                                                              datapresetting_mechanoadaptation_vs_passive_circular,
@@ -2025,7 +2015,6 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-
     metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_circular(
         datapresetting_mechanoadaptation_vs_passive_circular,
         metamodelposttreatment,
@@ -2037,15 +2026,12 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-    
     plot_PDF_pce_kriging_mechanoadaptation_vs_passive_circular(metamodelposttreatment, optimal_degree_mechanoadaptation_vs_passive_circular, training_amount_mechanoadaptation_vs_passive_circular)
 
     ### Mechanoadaptation elliptic ###
-
     filename_qMC_mechanoadaptation_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_elliptic.txt"
     training_amount_mechanoadaptation_elliptic = 0.65
     degree_list_mechanoadaptation_elliptic = np.arange(1, 7)
-
     datapresetting_mechanoadaptation_elliptic = DataPreSetting(filename_qMC_mechanoadaptation_elliptic, training_amount_mechanoadaptation_elliptic)
     optimal_degree_mechanoadaptation_elliptic = optimize_degree_pce_mechanoadaptation_elliptic(
                                                                              datapresetting_mechanoadaptation_elliptic,
@@ -2070,7 +2056,6 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-
     metamodel_validation_routine_kriging_mechanoadaptation_elliptic(
         datapresetting_mechanoadaptation_elliptic,
         metamodelposttreatment,
@@ -2082,15 +2067,12 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-    
     plot_PDF_pce_kriging_mechanoadaptation_elliptic(metamodelposttreatment, optimal_degree_mechanoadaptation_elliptic, training_amount_mechanoadaptation_elliptic)
 
     ### Mechanoadaptation vs passive elliptic ###
-
     filename_qMC_mechanoadaptation_vs_passive_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_vs_passive_elliptic.txt"
     training_amount_mechanoadaptation_vs_passive_elliptic = 0.9
     degree_list_mechanoadaptation_vs_passive_elliptic = np.arange(1, 6)
-
     datapresetting_mechanoadaptation_vs_passive_elliptic = DataPreSetting(filename_qMC_mechanoadaptation_vs_passive_elliptic, training_amount_mechanoadaptation_vs_passive_elliptic)
     optimal_degree_mechanoadaptation_vs_passive_elliptic = optimize_degree_pce_mechanoadaptation_vs_passive_elliptic(
                                                                              datapresetting_mechanoadaptation_vs_passive_elliptic,
@@ -2115,7 +2097,6 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-
     metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_elliptic(
         datapresetting_mechanoadaptation_vs_passive_elliptic,
         metamodelposttreatment,
@@ -2127,6 +2108,5 @@ if __name__ == "__main__":
         xticks,
         pixels,
     )
-    
     plot_PDF_pce_kriging_mechanoadaptation_vs_passive_elliptic(metamodelposttreatment, optimal_degree_mechanoadaptation_vs_passive_elliptic, training_amount_mechanoadaptation_vs_passive_elliptic)
 
