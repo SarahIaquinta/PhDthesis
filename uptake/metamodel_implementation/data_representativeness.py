@@ -1435,6 +1435,19 @@ class SampleRepresentativeness:
         savefigure.save_as_png(fig, "gradient_cumulative_std_vs_sample_size_mechanoadaptation_vs_passive_elliptic")
 
     def plot_PDF_sample_constant_elliptic(self, nb_bin, createfigure, savefigure, fonts, xticks, xticklabels, pixels):
+        """
+        Plots the histogram and an approximation of the PCE of the data
+
+        Parameters:
+            ----------
+            nb_bin: float
+                number of bins used to build the histogram
+
+        Returns:
+            -------
+            None
+
+        """
         with open("data_representativeness_constant_elliptic.pkl", "rb") as f:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
@@ -1475,6 +1488,19 @@ class SampleRepresentativeness:
         savefigure.save_as_png(fig, "PDF_feq_constant_elliptic" + str(pixels))
 
     def plot_PDF_sample_mechanoadaptation_circular(self, nb_bin, createfigure, savefigure, fonts, xticks, xticklabels, pixels):
+        """
+        Plots the histogram and an approximation of the PCE of the data
+
+        Parameters:
+            ----------
+            nb_bin: float
+                number of bins used to build the histogram
+
+        Returns:
+            -------
+            None
+
+        """
         with open("data_representativeness_mechanoadaptation_circular.pkl", "rb") as f:
             [_, _, _, _, all_shuffled_phase3] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
@@ -1513,6 +1539,19 @@ class SampleRepresentativeness:
         savefigure.save_as_png(fig, "PDF_psi3_mechanoadaptation_circular" + str(pixels))
 
     def plot_PDF_sample_mechanoadaptation_vs_passive_circular(self, nb_bin, createfigure, savefigure, fonts, xticks, xticklabels, pixels):
+        """
+        Plots the histogram and an approximation of the PCE of the data
+
+        Parameters:
+            ----------
+            nb_bin: float
+                number of bins used to build the histogram
+
+        Returns:
+            -------
+            None
+
+        """
         with open("data_representativeness_mechanoadaptation_vs_passive_circular.pkl", "rb") as f:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
@@ -1553,6 +1592,19 @@ class SampleRepresentativeness:
         savefigure.save_as_png(fig, "PDF_feq_mechanoadaptation_vs_passive_circular" + str(pixels))
 
     def plot_PDF_sample_mechanoadaptation_elliptic(self, nb_bin, createfigure, savefigure, fonts, xticks, xticklabels, pixels):
+        """
+        Plots the histogram and an approximation of the PCE of the data
+
+        Parameters:
+            ----------
+            nb_bin: float
+                number of bins used to build the histogram
+
+        Returns:
+            -------
+            None
+
+        """
         with open("data_representativeness_mechanoadaptation_elliptic.pkl", "rb") as f:
             [_, _, _, _, all_shuffled_phase3] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
@@ -1594,6 +1646,19 @@ class SampleRepresentativeness:
         savefigure.save_as_png(fig, "PDF_psi3_mechanoadaptation_elliptic" + str(pixels))
 
     def plot_PDF_sample_mechanoadaptation_vs_passive_elliptic(self, nb_bin, createfigure, savefigure, fonts, xticks, xticklabels, pixels):
+        """
+        Plots the histogram and an approximation of the PCE of the data
+
+        Parameters:
+            ----------
+            nb_bin: float
+                number of bins used to build the histogram
+
+        Returns:
+            -------
+            None
+
+        """
         with open("data_representativeness_mechanoadaptation_vs_passive_elliptic.pkl", "rb") as f:
             [_, _, _, _, all_shuffled_feq] = pickle.load(f)
         fig = createfigure.square_figure_7(pixels=pixels)
