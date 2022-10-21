@@ -889,10 +889,9 @@ def metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_elliptic(
     Q2 = metamodelvalidation.compute_Q2(metamodel_validator)
     print('Kriging, Q2 = ', Q2)
 
-
 # Plot Q2 vs degree #
 def plot_Q2_vs_degree_pce_constant_elliptic(
-    degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+    degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
         truncature degree
@@ -911,18 +910,12 @@ def plot_Q2_vs_degree_pce_constant_elliptic(
     None
 
     """
-    palette = sns.color_palette("Set2")
-    vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
     ax = fig.gca()
-    ax.plot(degree_list, Q2_list, color=vert_clair, label="$Q_2$", linewidth=3)
-    # ax.plot(degree_list, relativeerror_list, color=orange, label=r"$\epsilon_{LOO}$", linewidth=3)
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
-    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="k", markersize=15, mfc="none")
-    min_relativeerror = min(relativeerror_list)
-    min_relativeerror_index = relativeerror_list.index(min_relativeerror)
-    # plt.plot(degree_list[min_relativeerror_index], min_relativeerror, "o", color="k", markersize=15, mfc="none")
+    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="r", markersize=15, mfc="none")
+    ax.plot(degree_list, Q2_list, "o", color="k", markersize=10)
     ax.set_xticks([1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20])
     ax.set_xticklabels(
         [1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
@@ -935,7 +928,6 @@ def plot_Q2_vs_degree_pce_constant_elliptic(
         font=fonts.serif(),
         fontsize=fonts.axis_legend_size(),
     )
-    # ax.legend(prop=fonts.serif(), loc="upper left", framealpha=0.7)
     ax.set_xlim((1, 20.5))
     ax.set_ylim((0.4, 0.8))
     ax.grid(linestyle=':')
@@ -944,7 +936,7 @@ def plot_Q2_vs_degree_pce_constant_elliptic(
     savefigure.save_as_png(fig, "convergence_PCE_constant_elliptic" + str(pixels))
 
 def plot_Q2_vs_degree_pce_mechanoadaptation_circular(
-    degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+    degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
         truncature degree
@@ -963,18 +955,12 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_circular(
     None
 
     """
-    palette = sns.color_palette("Set2")
-    vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
     ax = fig.gca()
-    ax.plot(degree_list, Q2_list, color=vert_clair, label="$Q_2$", linewidth=3)
-    # ax.plot(degree_list, relativeerror_list, color=orange, label=r"$\epsilon_{LOO}$", linewidth=3)
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
-    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="k", markersize=15, mfc="none")
-    min_relativeerror = min(relativeerror_list)
-    min_relativeerror_index = relativeerror_list.index(min_relativeerror)
-    # plt.plot(degree_list[min_relativeerror_index], min_relativeerror, "o", color="k", markersize=15, mfc="none")
+    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="r", markersize=15, mfc="none")
+    ax.plot(degree_list, Q2_list, "o", color="k", markersize=10)
     ax.set_xticks([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
     ax.set_xticklabels(
         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
@@ -987,7 +973,6 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_circular(
         font=fonts.serif(),
         fontsize=fonts.axis_legend_size(),
     )
-    # ax.legend(prop=fonts.serif(), loc="center right", framealpha=0.7)
     ax.set_xlim((1, 11.5))
     ax.set_ylim((0.7, 1))
     ax.grid(linestyle = ':')
@@ -996,7 +981,7 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_circular(
     savefigure.save_as_png(fig, "convergence_PCE_mechanoadaptation_circular_" + str(pixels))
 
 def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
-    degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+    degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
         truncature degree
@@ -1015,18 +1000,12 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
     None
 
     """
-    palette = sns.color_palette("Set2")
-    vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
     ax = fig.gca()
-    ax.plot(degree_list, Q2_list, color=vert_clair, label="$Q_2$", linewidth=3)
-    # ax.plot(degree_list, relativeerror_list, color=orange, label=r"$\epsilon_{LOO}$", linewidth=3)
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
-    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="k", markersize=15, mfc="none")
-    min_relativeerror = min(relativeerror_list)
-    min_relativeerror_index = relativeerror_list.index(min_relativeerror)
-    # plt.plot(degree_list[min_relativeerror_index], min_relativeerror, "o", color="k", markersize=15, mfc="none")
+    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="r", markersize=15, mfc="none")
+    ax.plot(degree_list, Q2_list, "o", color="k", markersize=10)
     ax.set_xticks([1, 2, 3, 4, 5, 6, 7])
     ax.set_xticklabels(
         [1, 2, 3, 4, 5, 6, 7],
@@ -1039,7 +1018,6 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
         font=fonts.serif(),
         fontsize=fonts.axis_legend_size(),
     )
-    # ax.legend(prop=fonts.serif(), loc="upper right", framealpha=0.7)
     ax.set_xlim((1, 7.5))
     ax.set_ylim((0.72, 0.83))
     ax.grid(linestyle=':')
@@ -1048,7 +1026,7 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
     savefigure.save_as_png(fig, "convergence_PCE_mechanoadaptation_vs_passive_circular" + str(pixels))
 
 def plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
-    degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+    degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
         truncature degree
@@ -1067,18 +1045,12 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
     None
 
     """
-    palette = sns.color_palette("Set2")
-    vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
     ax = fig.gca()
-    ax.plot(degree_list, Q2_list, color=vert_clair, label="$Q_2$", linewidth=3)
-    # ax.plot(degree_list, relativeerror_list, color=orange, label=r"$\epsilon_{LOO}$", linewidth=3)
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
-    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="k", markersize=15, mfc="none")
-    min_relativeerror = min(relativeerror_list)
-    min_relativeerror_index = relativeerror_list.index(min_relativeerror)
-    # plt.plot(degree_list[min_relativeerror_index], min_relativeerror, "o", color="k", markersize=15, mfc="none")
+    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="r", markersize=15, mfc="none")
+    ax.plot(degree_list, Q2_list, "o", color="k", markersize=10)
     ax.set_xticks([1, 2, 3, 4, 5])
     ax.set_xticklabels(
         [1, 2, 3, 4, 5],
@@ -1093,14 +1065,13 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
     )
     ax.legend(prop=fonts.serif(), loc="upper right", framealpha=0.7)
     ax.set_xlim((1, 5.5))
-    # ax.set_ylim((0.7, 0.8))
     ax.grid(linestyle=':')
     ax.set_xlabel("degree $p$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
     ax.set_ylabel(r"$Q_2$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
     savefigure.save_as_png(fig, "convergence_PCE_mechanoadaptation_elliptic_" + str(pixels))
 
 def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
-    degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+    degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
         truncature degree
@@ -1119,18 +1090,12 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
     None
 
     """
-    palette = sns.color_palette("Set2")
-    vert_clair, orange = 'k', palette[1]
     fig = createfigure.square_figure_7(pixels=pixels)
     ax = fig.gca()
-    ax.plot(degree_list, Q2_list, color=vert_clair, label="$Q_2$", linewidth=3)
-    # ax.plot(degree_list, relativeerror_list, color=orange, label=r"$\epsilon_{LOO}$", linewidth=3)
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
-    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="k", markersize=15, mfc="none")
-    min_relativeerror = min(relativeerror_list)
-    min_relativeerror_index = relativeerror_list.index(min_relativeerror)
-    # plt.plot(degree_list[min_relativeerror_index], min_relativeerror, "o", color="k", markersize=15, mfc="none")
+    plt.plot(degree_list[max_Q2_index], max_Q2, "o", color="r", markersize=15, mfc="none")
+    ax.plot(degree_list, Q2_list, "o", color="k", markersize=10)
     ax.set_xticks([1, 2, 3, 4, 5])
     ax.set_xticklabels(
         [1, 2, 3, 4, 5],
@@ -1143,9 +1108,7 @@ def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
         font=fonts.serif(),
         fontsize=fonts.axis_legend_size(),
     )
-    # ax.legend(prop=fonts.serif(), loc="upper right", framealpha=0.7)
     ax.set_xlim((1, 5.5))
-    # ax.set_ylim((0.72, 0.83))
     ax.grid(linestyle=':')
     ax.set_xlabel("degree $p$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
     ax.set_ylabel(r"$Q_2$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
@@ -1184,10 +1147,8 @@ def optimize_degree_pce_constant_elliptic(
 
     """
     Q2_list = []
-    residual_list = []
-    relativeerror_list = []
     for degree in degree_list:
-        Q2, residual, relative_error = metamodel_validation_routine_pce_constant_elliptic(
+        Q2, _, _ = metamodel_validation_routine_pce_constant_elliptic(
             datapresetting,
             metamodelposttreatment,
             metamodelvalidation,
@@ -1200,10 +1161,8 @@ def optimize_degree_pce_constant_elliptic(
             pixels,
         )
         Q2_list.append(Q2[0])
-        residual_list.append(residual[0])
-        relativeerror_list.append(relative_error[0])
     plot_Q2_vs_degree_pce_constant_elliptic(
-        degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+        degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
@@ -1243,10 +1202,8 @@ def optimize_degree_pce_mechanoadaptation_circular(
 
     """
     Q2_list = []
-    residual_list = []
-    relativeerror_list = []
     for degree in degree_list:
-        Q2, residual, relative_error = metamodel_validation_routine_pce_mechanoadaptation_circular(
+        Q2, _, _ = metamodel_validation_routine_pce_mechanoadaptation_circular(
             datapresetting,
             metamodelposttreatment,
             metamodelvalidation,
@@ -1259,10 +1216,8 @@ def optimize_degree_pce_mechanoadaptation_circular(
             pixels,
         )
         Q2_list.append(Q2[0])
-        residual_list.append(residual[0])
-        relativeerror_list.append(relative_error[0])
     plot_Q2_vs_degree_pce_mechanoadaptation_circular(
-        degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+        degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
@@ -1302,10 +1257,8 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_circular(
 
     """
     Q2_list = []
-    residual_list = []
-    relativeerror_list = []
     for degree in degree_list:
-        Q2, residual, relative_error = metamodel_validation_routine_pce_mechanoadaptation_vs_passive_circular(
+        Q2, _, _ = metamodel_validation_routine_pce_mechanoadaptation_vs_passive_circular(
             datapresetting,
             metamodelposttreatment,
             metamodelvalidation,
@@ -1318,10 +1271,8 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_circular(
             pixels,
         )
         Q2_list.append(Q2[0])
-        residual_list.append(residual[0])
-        relativeerror_list.append(relative_error[0])
     plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
-        degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+        degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
@@ -1361,10 +1312,8 @@ def optimize_degree_pce_mechanoadaptation_elliptic(
 
     """
     Q2_list = []
-    residual_list = []
-    relativeerror_list = []
     for degree in degree_list:
-        Q2, residual, relative_error = metamodel_validation_routine_pce_mechanoadaptation_elliptic(
+        Q2, _, _ = metamodel_validation_routine_pce_mechanoadaptation_elliptic(
             datapresetting,
             metamodelposttreatment,
             metamodelvalidation,
@@ -1377,10 +1326,8 @@ def optimize_degree_pce_mechanoadaptation_elliptic(
             pixels,
         )
         Q2_list.append(Q2[0])
-        residual_list.append(residual[0])
-        relativeerror_list.append(relative_error[0])
     plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
-        degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+        degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
@@ -1420,10 +1367,8 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_elliptic(
 
     """
     Q2_list = []
-    residual_list = []
-    relativeerror_list = []
     for degree in degree_list:
-        Q2, residual, relative_error = metamodel_validation_routine_pce_mechanoadaptation_vs_passive_elliptic(
+        Q2, _, _ = metamodel_validation_routine_pce_mechanoadaptation_vs_passive_elliptic(
             datapresetting,
             metamodelposttreatment,
             metamodelvalidation,
@@ -1436,10 +1381,8 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_elliptic(
             pixels,
         )
         Q2_list.append(Q2[0])
-        residual_list.append(residual[0])
-        relativeerror_list.append(relative_error[0])
     plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
-        degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
+        degree_list, Q2_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
     max_Q2 = max(Q2_list)
     max_Q2_index = Q2_list.index(max_Q2)
@@ -1950,7 +1893,6 @@ def plot_PDF_pce_kriging_mechanoadaptation_vs_passive_elliptic(metamodelposttrea
     ax.legend(prop=fonts.serif(), loc="upper right", framealpha=0.7)
     ax.grid(linestyle='--')
     savefigure.save_as_png(fig, "PDF_metamodel_mechanoadaptation_vs_passive_elliptic" + str(pixels))
-
 
 if __name__ == "__main__":
     createfigure = CreateFigure()
