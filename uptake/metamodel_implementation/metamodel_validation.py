@@ -807,8 +807,8 @@ def metamodel_validation_routine_kriging_mechanoadaptation_vs_passive_elliptic(
     print('Kriging, Q2 = ', Q2)
 
 
-# Plot error vs degree #
-def plot_error_vs_degree_pce_constant_elliptic(
+# Plot Q2 vs degree #
+def plot_Q2_vs_degree_pce_constant_elliptic(
     degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
@@ -860,7 +860,7 @@ def plot_error_vs_degree_pce_constant_elliptic(
     ax.set_ylabel(r"$Q_2$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
     savefigure.save_as_png(fig, "convergence_PCE_constant_elliptic" + str(pixels))
 
-def plot_error_vs_degree_pce_mechanoadaptation_circular(
+def plot_Q2_vs_degree_pce_mechanoadaptation_circular(
     degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
@@ -912,7 +912,7 @@ def plot_error_vs_degree_pce_mechanoadaptation_circular(
     ax.set_ylabel(r"$Q_2$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
     savefigure.save_as_png(fig, "convergence_PCE_mechanoadaptation_circular_" + str(pixels))
 
-def plot_error_vs_degree_pce_mechanoadaptation_vs_passive_circular(
+def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
     degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
@@ -964,7 +964,7 @@ def plot_error_vs_degree_pce_mechanoadaptation_vs_passive_circular(
     ax.set_ylabel(r"$Q_2$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
     savefigure.save_as_png(fig, "convergence_PCE_mechanoadaptation_vs_passive_circular" + str(pixels))
 
-def plot_error_vs_degree_pce_mechanoadaptation_elliptic(
+def plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
     degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
@@ -1016,7 +1016,7 @@ def plot_error_vs_degree_pce_mechanoadaptation_elliptic(
     ax.set_ylabel(r"$Q_2$ [ - ]", font=fonts.serif(), fontsize=fonts.axis_label_size())
     savefigure.save_as_png(fig, "convergence_PCE_mechanoadaptation_elliptic_" + str(pixels))
 
-def plot_error_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
+def plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
     degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
 ):
     """Plots the LOO error and the predictivity factor of the PCE with respect to its
@@ -1120,7 +1120,7 @@ def optimize_degree_pce_constant_elliptic(
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
 
-    plot_error_vs_degree_pce_constant_elliptic(
+    plot_Q2_vs_degree_pce_constant_elliptic(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
 
@@ -1181,7 +1181,7 @@ def optimize_degree_pce_mechanoadaptation_circular(
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
 
-    plot_error_vs_degree_pce_mechanoadaptation_circular(
+    plot_Q2_vs_degree_pce_mechanoadaptation_circular(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
 
@@ -1242,7 +1242,7 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_circular(
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
 
-    plot_error_vs_degree_pce_mechanoadaptation_vs_passive_circular(
+    plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_circular(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
 
@@ -1303,7 +1303,7 @@ def optimize_degree_pce_mechanoadaptation_elliptic(
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
 
-    plot_error_vs_degree_pce_mechanoadaptation_elliptic(
+    plot_Q2_vs_degree_pce_mechanoadaptation_elliptic(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
 
@@ -1364,7 +1364,7 @@ def optimize_degree_pce_mechanoadaptation_vs_passive_elliptic(
         residual_list.append(residual[0])
         relativeerror_list.append(relative_error[0])
 
-    plot_error_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
+    plot_Q2_vs_degree_pce_mechanoadaptation_vs_passive_elliptic(
         degree_list, Q2_list, relativeerror_list, createfigure, savefigure, fonts, xticks, xticklabels, pixels
     )
 
