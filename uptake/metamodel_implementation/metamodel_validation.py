@@ -1,10 +1,8 @@
 import numpy as np
 import openturns as ot
-from scipy.interpolate import UnivariateSpline
 from sklearn.neighbors import KernelDensity
 import seaborn as sns
 from matplotlib import pylab as plt
-
 import uptake.metamodel_implementation.utils as miu
 from uptake.figures.utils import CreateFigure, Fonts, SaveFigure, XTickLabels, XTicks
 from uptake.metamodel_implementation.metamodel_creation import DataPreSetting, MetamodelPostTreatment
