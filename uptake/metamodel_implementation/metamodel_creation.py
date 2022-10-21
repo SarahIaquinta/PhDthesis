@@ -1102,107 +1102,82 @@ if __name__ == "__main__":
     metamodelposttreatment = MetamodelPostTreatment()
 
     ### Constant elliptic ###
-    
     filename_qMC_constant_elliptic = "dataset_for_metamodel_creation_feq_constant_elliptic.txt"
-    training_amount_list_constant_elliptic = [0.9]
+    training_amount_constant_elliptic = 0.9
     degree_list_constant_elliptic = np.arange(1, 21)
-
-    
-    for training_amount in training_amount_list_constant_elliptic:
-        datapresetting = DataPreSetting(filename_qMC_constant_elliptic, training_amount)
-        shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
-        input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_constant_elliptic(
-            shuffled_sample
-        )
-        metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
-        metamodel_creation_routine_kriging_constant_elliptic(
-            datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
-        )
-
-        for degree in degree_list_constant_elliptic:
-            metamodel_creation_routine_pce_constant_elliptic(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
+    datapresetting = DataPreSetting(filename_qMC_constant_elliptic, training_amount_constant_elliptic)
+    shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
+    input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_constant_elliptic(
+        shuffled_sample
+    )
+    metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
+    metamodel_creation_routine_kriging_constant_elliptic(
+        datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
+    )
+    for degree in degree_list_constant_elliptic:
+        metamodel_creation_routine_pce_constant_elliptic(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
 
     ### Mechano-adaptation circular ###
-    
     filename_qMC_mechanoadaptation_circular = "dataset_for_metamodel_creation_mechanoadaptation_circular.txt"
-    training_amount_list_mechanoadaptation_circular = [0.8]
+    training_amount_mechanoadaptation_circular = 0.8
     degree_list_mechanoadaptation_circular = np.arange(1, 12)
-
-    
-    for training_amount in training_amount_list_mechanoadaptation_circular:
-        datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_circular, training_amount)
-        shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
-        input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_circular(
-            shuffled_sample
-        )
-        metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
-        metamodel_creation_routine_kriging_mechanoadaptation_circular(
-            datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
-        )
-
-        for degree in degree_list_mechanoadaptation_circular:
-            metamodel_creation_routine_pce_mechanoadaptation_circular(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
+    datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_circular, training_amount_mechanoadaptation_circular)
+    shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
+    input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_circular(
+        shuffled_sample
+    )
+    metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
+    metamodel_creation_routine_kriging_mechanoadaptation_circular(
+        datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
+    )
+    for degree in degree_list_mechanoadaptation_circular:
+        metamodel_creation_routine_pce_mechanoadaptation_circular(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
 
     ### Mechano-adaptation vs passive circular ###
-    
     filename_qMC_mechanoadaptation_vs_passive_circular = "dataset_for_metamodel_creation_mechanoadaptation_vs_passive_circular.txt"
-    training_amount_list_mechanoadaptation_vs_passive_circular = [0.8]
+    training_amount_mechanoadaptation_vs_passive_circular = 0.8
     degree_list_mechanoadaptation_vs_passive_circular = np.arange(1, 8)
-
-    
-    for training_amount in training_amount_list_mechanoadaptation_vs_passive_circular:
-        datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_vs_passive_circular, training_amount)
-        shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
-        input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_vs_passive_circular(
-            shuffled_sample
-        )
-        metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
-        metamodel_creation_routine_kriging_mechanoadaptation_vs_passive_circular(
-            datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
-        )
-
-        for degree in degree_list_mechanoadaptation_vs_passive_circular:
-            metamodel_creation_routine_pce_mechanoadaptation_vs_passive_circular(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
+    datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_vs_passive_circular, training_amount_mechanoadaptation_vs_passive_circular)
+    shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
+    input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_vs_passive_circular(
+        shuffled_sample
+    )
+    metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
+    metamodel_creation_routine_kriging_mechanoadaptation_vs_passive_circular(
+        datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
+    )
+    for degree in degree_list_mechanoadaptation_vs_passive_circular:
+        metamodel_creation_routine_pce_mechanoadaptation_vs_passive_circular(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
 
     ### Mechano-adaptation elliptic ###
-    
     filename_qMC_mechanoadaptation_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_elliptic.txt"
-    training_amount_list_mechanoadaptation_elliptic = [0.65]
+    training_amount_mechanoadaptation_elliptic = 0.65
     degree_list_mechanoadaptation_elliptic = np.arange(1, 7)
-
-    
-    for training_amount in training_amount_list_mechanoadaptation_elliptic:
-        datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_elliptic, training_amount)
-        shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
-        input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_elliptic(
-            shuffled_sample
-        )
-        metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
-        metamodel_creation_routine_kriging_mechanoadaptation_elliptic(
-            datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
-        )
-
-        for degree in degree_list_mechanoadaptation_elliptic:
-            metamodel_creation_routine_pce_mechanoadaptation_elliptic(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
+    datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_elliptic, training_amount_mechanoadaptation_elliptic)
+    shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
+    input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_elliptic(
+        shuffled_sample
+    )
+    metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
+    metamodel_creation_routine_kriging_mechanoadaptation_elliptic(
+        datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
+    )
+    for degree in degree_list_mechanoadaptation_elliptic:
+        metamodel_creation_routine_pce_mechanoadaptation_elliptic(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
 
     ### Mechano-adaptation vs passive elliptic ###
-    
     filename_qMC_mechanoadaptation_vs_passive_elliptic = "dataset_for_metamodel_creation_mechanoadaptation_vs_passive_elliptic.txt"
-    training_amount_list_mechanoadaptation_vs_passive_elliptic = [0.9]
+    training_amount_mechanoadaptation_vs_passive_elliptic = 0.9
     degree_list_mechanoadaptation_vs_passive_elliptic = np.arange(1, 6)
-
-    
-    for training_amount in training_amount_list_mechanoadaptation_vs_passive_elliptic:
-        datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_vs_passive_elliptic, training_amount)
-        shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
-        input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_vs_passive_elliptic(
-            shuffled_sample
-        )
-        metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
-        metamodel_creation_routine_kriging_mechanoadaptation_vs_passive_elliptic(
-            datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
-        )
-
-        for degree in degree_list_mechanoadaptation_vs_passive_elliptic:
-            metamodel_creation_routine_pce_mechanoadaptation_vs_passive_elliptic(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
+    datapresetting = DataPreSetting(filename_qMC_mechanoadaptation_vs_passive_elliptic, training_amount_mechanoadaptation_vs_passive_elliptic)
+    shuffled_sample = datapresetting.shuffle_dataset_from_datafile()
+    input_sample_training, output_sample_training = datapresetting.extract_training_data_from_shuffled_dataset_mechanoadaptation_vs_passive_elliptic(
+        shuffled_sample
+    )
+    metamodelcreation = MetamodelCreation(input_sample_training, output_sample_training)
+    metamodel_creation_routine_kriging_mechanoadaptation_vs_passive_elliptic(
+        datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample
+    )
+    for degree in degree_list_mechanoadaptation_vs_passive_elliptic:
+        metamodel_creation_routine_pce_mechanoadaptation_vs_passive_elliptic(datapresetting, metamodelcreation, metamodelposttreatment, shuffled_sample, degree)
 
